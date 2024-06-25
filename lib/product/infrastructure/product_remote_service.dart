@@ -6,6 +6,8 @@ class ProductRemoteService {
   final Dio _dio;
 
   ProductRemoteService(this._dio);
+
+  // noInternet, result
   Future<NetworkResult<List<ProductDto>>> getProductList() async {
     try {
       final response = await _dio.get('contacts');

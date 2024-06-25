@@ -15,7 +15,7 @@ class ProductRepository {
         hodStaffs.when(
           noConnection: DomainResult.noInternet,
           result: (entity) => DomainResult.data(
-            entity.map((e) => e.toDomain()).toList(),
+            entity.map((e) => e.domain).toList(),
           ),
         ),
       );

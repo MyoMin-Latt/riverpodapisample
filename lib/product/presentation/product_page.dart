@@ -29,6 +29,7 @@ class _ProductPageState extends ConsumerState<ProductPage> {
   @override
   Widget build(BuildContext context) {
     ref.listen(
+      // action - fun
       productListNotifierProvider,
       (previous, next) {
         next.when(
@@ -41,7 +42,7 @@ class _ProductPageState extends ConsumerState<ProductPage> {
         );
       },
     );
-    final listState = ref.watch(productListNotifierProvider);
+    final listState = ref.watch(productListNotifierProvider); // ui
 
     return Scaffold(
       appBar: AppBar(title: const Text("Product")),

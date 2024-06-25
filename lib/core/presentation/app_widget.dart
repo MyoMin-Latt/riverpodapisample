@@ -36,6 +36,7 @@ class AppWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.read(initializationProvider);
     return MaterialApp.router(
       title: F.title,
       debugShowCheckedModeBanner: false,
