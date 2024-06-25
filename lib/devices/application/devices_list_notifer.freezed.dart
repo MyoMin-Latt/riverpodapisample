@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'product_list_notifer.dart';
+part of 'devices_list_notifer.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,14 +15,14 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ProductListState {
+mixin _$DevicesListState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() empty,
     required TResult Function() noInternet,
-    required TResult Function(List<ProductModel> message) success,
+    required TResult Function(List<DevicesModel> message) success,
     required TResult Function(ResponseInfoError error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -32,7 +32,7 @@ mixin _$ProductListState {
     TResult? Function()? loading,
     TResult? Function()? empty,
     TResult? Function()? noInternet,
-    TResult? Function(List<ProductModel> message)? success,
+    TResult? Function(List<DevicesModel> message)? success,
     TResult? Function(ResponseInfoError error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ mixin _$ProductListState {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function()? noInternet,
-    TResult Function(List<ProductModel> message)? success,
+    TResult Function(List<DevicesModel> message)? success,
     TResult Function(ResponseInfoError error)? error,
     required TResult orElse(),
   }) =>
@@ -81,16 +81,16 @@ mixin _$ProductListState {
 }
 
 /// @nodoc
-abstract class $ProductListStateCopyWith<$Res> {
-  factory $ProductListStateCopyWith(
-          ProductListState value, $Res Function(ProductListState) then) =
-      _$ProductListStateCopyWithImpl<$Res, ProductListState>;
+abstract class $DevicesListStateCopyWith<$Res> {
+  factory $DevicesListStateCopyWith(
+          DevicesListState value, $Res Function(DevicesListState) then) =
+      _$DevicesListStateCopyWithImpl<$Res, DevicesListState>;
 }
 
 /// @nodoc
-class _$ProductListStateCopyWithImpl<$Res, $Val extends ProductListState>
-    implements $ProductListStateCopyWith<$Res> {
-  _$ProductListStateCopyWithImpl(this._value, this._then);
+class _$DevicesListStateCopyWithImpl<$Res, $Val extends DevicesListState>
+    implements $DevicesListStateCopyWith<$Res> {
+  _$DevicesListStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -107,7 +107,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ProductListStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$DevicesListStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -121,7 +121,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'ProductListState.initial()';
+    return 'DevicesListState.initial()';
   }
 
   @override
@@ -140,7 +140,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function() empty,
     required TResult Function() noInternet,
-    required TResult Function(List<ProductModel> message) success,
+    required TResult Function(List<DevicesModel> message) success,
     required TResult Function(ResponseInfoError error) error,
   }) {
     return initial();
@@ -153,7 +153,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function()? empty,
     TResult? Function()? noInternet,
-    TResult? Function(List<ProductModel> message)? success,
+    TResult? Function(List<DevicesModel> message)? success,
     TResult? Function(ResponseInfoError error)? error,
   }) {
     return initial?.call();
@@ -166,7 +166,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function()? noInternet,
-    TResult Function(List<ProductModel> message)? success,
+    TResult Function(List<DevicesModel> message)? success,
     TResult Function(ResponseInfoError error)? error,
     required TResult orElse(),
   }) {
@@ -220,7 +220,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements ProductListState {
+abstract class _Initial implements DevicesListState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -233,7 +233,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$ProductListStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$DevicesListStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -247,7 +247,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'ProductListState.loading()';
+    return 'DevicesListState.loading()';
   }
 
   @override
@@ -266,7 +266,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function() empty,
     required TResult Function() noInternet,
-    required TResult Function(List<ProductModel> message) success,
+    required TResult Function(List<DevicesModel> message) success,
     required TResult Function(ResponseInfoError error) error,
   }) {
     return loading();
@@ -279,7 +279,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function()? empty,
     TResult? Function()? noInternet,
-    TResult? Function(List<ProductModel> message)? success,
+    TResult? Function(List<DevicesModel> message)? success,
     TResult? Function(ResponseInfoError error)? error,
   }) {
     return loading?.call();
@@ -292,7 +292,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function()? noInternet,
-    TResult Function(List<ProductModel> message)? success,
+    TResult Function(List<DevicesModel> message)? success,
     TResult Function(ResponseInfoError error)? error,
     required TResult orElse(),
   }) {
@@ -346,7 +346,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements ProductListState {
+abstract class _Loading implements DevicesListState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -359,7 +359,7 @@ abstract class _$$EmptyImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$EmptyImplCopyWithImpl<$Res>
-    extends _$ProductListStateCopyWithImpl<$Res, _$EmptyImpl>
+    extends _$DevicesListStateCopyWithImpl<$Res, _$EmptyImpl>
     implements _$$EmptyImplCopyWith<$Res> {
   __$$EmptyImplCopyWithImpl(
       _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
@@ -373,7 +373,7 @@ class _$EmptyImpl implements _Empty {
 
   @override
   String toString() {
-    return 'ProductListState.empty()';
+    return 'DevicesListState.empty()';
   }
 
   @override
@@ -392,7 +392,7 @@ class _$EmptyImpl implements _Empty {
     required TResult Function() loading,
     required TResult Function() empty,
     required TResult Function() noInternet,
-    required TResult Function(List<ProductModel> message) success,
+    required TResult Function(List<DevicesModel> message) success,
     required TResult Function(ResponseInfoError error) error,
   }) {
     return empty();
@@ -405,7 +405,7 @@ class _$EmptyImpl implements _Empty {
     TResult? Function()? loading,
     TResult? Function()? empty,
     TResult? Function()? noInternet,
-    TResult? Function(List<ProductModel> message)? success,
+    TResult? Function(List<DevicesModel> message)? success,
     TResult? Function(ResponseInfoError error)? error,
   }) {
     return empty?.call();
@@ -418,7 +418,7 @@ class _$EmptyImpl implements _Empty {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function()? noInternet,
-    TResult Function(List<ProductModel> message)? success,
+    TResult Function(List<DevicesModel> message)? success,
     TResult Function(ResponseInfoError error)? error,
     required TResult orElse(),
   }) {
@@ -472,7 +472,7 @@ class _$EmptyImpl implements _Empty {
   }
 }
 
-abstract class _Empty implements ProductListState {
+abstract class _Empty implements DevicesListState {
   const factory _Empty() = _$EmptyImpl;
 }
 
@@ -485,7 +485,7 @@ abstract class _$$NoInternetImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$NoInternetImplCopyWithImpl<$Res>
-    extends _$ProductListStateCopyWithImpl<$Res, _$NoInternetImpl>
+    extends _$DevicesListStateCopyWithImpl<$Res, _$NoInternetImpl>
     implements _$$NoInternetImplCopyWith<$Res> {
   __$$NoInternetImplCopyWithImpl(
       _$NoInternetImpl _value, $Res Function(_$NoInternetImpl) _then)
@@ -499,7 +499,7 @@ class _$NoInternetImpl implements _NoInternet {
 
   @override
   String toString() {
-    return 'ProductListState.noInternet()';
+    return 'DevicesListState.noInternet()';
   }
 
   @override
@@ -518,7 +518,7 @@ class _$NoInternetImpl implements _NoInternet {
     required TResult Function() loading,
     required TResult Function() empty,
     required TResult Function() noInternet,
-    required TResult Function(List<ProductModel> message) success,
+    required TResult Function(List<DevicesModel> message) success,
     required TResult Function(ResponseInfoError error) error,
   }) {
     return noInternet();
@@ -531,7 +531,7 @@ class _$NoInternetImpl implements _NoInternet {
     TResult? Function()? loading,
     TResult? Function()? empty,
     TResult? Function()? noInternet,
-    TResult? Function(List<ProductModel> message)? success,
+    TResult? Function(List<DevicesModel> message)? success,
     TResult? Function(ResponseInfoError error)? error,
   }) {
     return noInternet?.call();
@@ -544,7 +544,7 @@ class _$NoInternetImpl implements _NoInternet {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function()? noInternet,
-    TResult Function(List<ProductModel> message)? success,
+    TResult Function(List<DevicesModel> message)? success,
     TResult Function(ResponseInfoError error)? error,
     required TResult orElse(),
   }) {
@@ -598,7 +598,7 @@ class _$NoInternetImpl implements _NoInternet {
   }
 }
 
-abstract class _NoInternet implements ProductListState {
+abstract class _NoInternet implements DevicesListState {
   const factory _NoInternet() = _$NoInternetImpl;
 }
 
@@ -608,12 +608,12 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ProductModel> message});
+  $Res call({List<DevicesModel> message});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$ProductListStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$DevicesListStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -628,7 +628,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
       null == message
           ? _value._message
           : message // ignore: cast_nullable_to_non_nullable
-              as List<ProductModel>,
+              as List<DevicesModel>,
     ));
   }
 }
@@ -636,11 +636,11 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(final List<ProductModel> message) : _message = message;
+  const _$SuccessImpl(final List<DevicesModel> message) : _message = message;
 
-  final List<ProductModel> _message;
+  final List<DevicesModel> _message;
   @override
-  List<ProductModel> get message {
+  List<DevicesModel> get message {
     if (_message is EqualUnmodifiableListView) return _message;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_message);
@@ -648,7 +648,7 @@ class _$SuccessImpl implements _Success {
 
   @override
   String toString() {
-    return 'ProductListState.success(message: $message)';
+    return 'DevicesListState.success(message: $message)';
   }
 
   @override
@@ -676,7 +676,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function() loading,
     required TResult Function() empty,
     required TResult Function() noInternet,
-    required TResult Function(List<ProductModel> message) success,
+    required TResult Function(List<DevicesModel> message) success,
     required TResult Function(ResponseInfoError error) error,
   }) {
     return success(message);
@@ -689,7 +689,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? loading,
     TResult? Function()? empty,
     TResult? Function()? noInternet,
-    TResult? Function(List<ProductModel> message)? success,
+    TResult? Function(List<DevicesModel> message)? success,
     TResult? Function(ResponseInfoError error)? error,
   }) {
     return success?.call(message);
@@ -702,7 +702,7 @@ class _$SuccessImpl implements _Success {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function()? noInternet,
-    TResult Function(List<ProductModel> message)? success,
+    TResult Function(List<DevicesModel> message)? success,
     TResult Function(ResponseInfoError error)? error,
     required TResult orElse(),
   }) {
@@ -756,10 +756,10 @@ class _$SuccessImpl implements _Success {
   }
 }
 
-abstract class _Success implements ProductListState {
-  const factory _Success(final List<ProductModel> message) = _$SuccessImpl;
+abstract class _Success implements DevicesListState {
+  const factory _Success(final List<DevicesModel> message) = _$SuccessImpl;
 
-  List<ProductModel> get message;
+  List<DevicesModel> get message;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -778,7 +778,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$ProductListStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$DevicesListStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -816,7 +816,7 @@ class _$ErrorImpl implements _Error {
 
   @override
   String toString() {
-    return 'ProductListState.error(error: $error)';
+    return 'DevicesListState.error(error: $error)';
   }
 
   @override
@@ -843,7 +843,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() loading,
     required TResult Function() empty,
     required TResult Function() noInternet,
-    required TResult Function(List<ProductModel> message) success,
+    required TResult Function(List<DevicesModel> message) success,
     required TResult Function(ResponseInfoError error) error,
   }) {
     return error(this.error);
@@ -856,7 +856,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? loading,
     TResult? Function()? empty,
     TResult? Function()? noInternet,
-    TResult? Function(List<ProductModel> message)? success,
+    TResult? Function(List<DevicesModel> message)? success,
     TResult? Function(ResponseInfoError error)? error,
   }) {
     return error?.call(this.error);
@@ -869,7 +869,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? loading,
     TResult Function()? empty,
     TResult Function()? noInternet,
-    TResult Function(List<ProductModel> message)? success,
+    TResult Function(List<DevicesModel> message)? success,
     TResult Function(ResponseInfoError error)? error,
     required TResult orElse(),
   }) {
@@ -923,7 +923,7 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements ProductListState {
+abstract class _Error implements DevicesListState {
   const factory _Error(final ResponseInfoError error) = _$ErrorImpl;
 
   ResponseInfoError get error;

@@ -1,0 +1,75 @@
+[
+     {
+       "createdAt": "6.25.2024",
+       "deviceName": "iPhone 15 Pro",
+       "brand": "iPhone",
+       "deviceID": "1"
+     },
+     {
+       "createdAt": "6.25.2024",
+       "deviceName": "iPhone 15",
+       "brand": "iPhone",
+       "deviceID": "2"
+     },
+     {
+       "createdAt": "6.25.2024",
+       "deviceName": "iPhone 13",
+       "brand": "iPhone",
+       "deviceID": "3"
+     },
+     {
+       "createdAt": "6.25.2024",
+       "deviceName": "Galaxy S24 Ultra",
+       "brand": "SamSung",
+       "deviceID": "4"
+     },
+     {
+       "createdAt": "6.25.2024",
+       "deviceName": "Galaxy S24+",
+       "brand": "SamSung",
+       "deviceID": "5"
+     },
+     {
+       "createdAt": "6.25.2024",
+       "deviceName": "Galaxy A25",
+       "brand": "SamSung",
+       "deviceID": "6"
+     },
+     {
+       "createdAt": "6.25.2024",
+       "deviceName": "V25e",
+       "brand": "Vivo",
+       "deviceID": "7"
+     },
+     {
+       "createdAt": "6.25.2024",
+       "deviceName": "X Fold3 Pro",
+       "brand": "Vivo",
+       "deviceID": "8"
+     },
+     {
+       "createdAt": "6.25.2024",
+       "deviceName": "Y18",
+       "brand": "Vivo",
+       "deviceID": "9"
+     },
+     {
+       "createdAt": "6.25.2024",
+       "deviceName": "Reno12",
+       "brand": "Oppo",
+       "deviceID": "10"
+     },
+     {
+       "createdAt": "6.25.2024",
+       "deviceName": "OPPO Find N2 Flip",
+       "brand": "Oppo",
+       "deviceID": "11"
+     },
+     {
+       "createdAt": "6.25.2024",
+       "deviceName": "A60",
+       "brand": "Oppo",
+       "deviceID": "12"
+     }
+   ]
+   

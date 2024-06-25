@@ -15,10 +15,10 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    ProductRoute.name: (routeData) {
+    DevicesRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ProductPage(),
+        child: const DevicesPage(),
       );
     },
     SplashRoute.name: (routeData) {
@@ -31,15 +31,15 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
-/// [ProductPage]
-class ProductRoute extends PageRouteInfo<void> {
-  const ProductRoute({List<PageRouteInfo>? children})
+/// [DevicesPage]
+class DevicesRoute extends PageRouteInfo<void> {
+  const DevicesRoute({List<PageRouteInfo>? children})
       : super(
-          ProductRoute.name,
+          DevicesRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'ProductRoute';
+  static const String name = 'DevicesRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
