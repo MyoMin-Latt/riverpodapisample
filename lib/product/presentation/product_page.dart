@@ -45,15 +45,77 @@ class _ProductPageState extends ConsumerState<ProductPage> {
     final listState = ref.watch(productListNotifierProvider); // ui
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Product")),
+      appBar: AppBar(
+        title: const Text("Product"),
+        actions: [
+          IconButton(
+            onPressed: getProductList,
+            icon: const Icon(
+              Icons.download,
+            ),
+          )
+        ],
+      ),
       body: listState.when(
-          initial: () => const SizedBox(),
-          loading: () => const Center(child: CircularProgressIndicator()),
-          empty: () => const Center(child: Text("Empty Data")),
-          noInternet: () => const Center(child: Text("noInternet")),
-          success: (data) => const Center(child: Text(" Data")),
-          error: (err) =>
-              Center(child: Text(err.message ?? "Error - Try Again"))),
+        initial: () => null,
+        loading: () => const Center(child: CircularProgressIndicator()),
+        empty: () => const Center(
+          child: Text(
+            "Empty Data",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+          ),
+        ),
+        noInternet: () => const Center(
+            child: Text(
+          "noInternet",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+        )),
+        error: (err) => Center(
+          child: Text(
+            err.message ?? "Error - Try Again",
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+          ),
+        ),
+        success: (prodList) {
+          return ListView.builder(
+            itemCount: prodList.length,
+            itemBuilder: (context, index) => Card(
+              child: ListTile(
+                title: Text(prodList[index].name),
+                subtitle: Text(prodList[index].phone),
+                trailing: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.delete,
+                    )),
+              ),
+            ),
+          );
+        },
+        // success: (data) => const Center(child: Text(" Data")),
+        // success: (data) => Padding(
+        //   padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
+        //   child: SingleChildScrollView(
+        //     child: Column(
+        //       children: List.generate(
+        //         data.length,
+        //         (index) => Card(
+        //           child: Padding(
+        //             padding: const EdgeInsets.all(18.0),
+        //             child: Column(
+        //               crossAxisAlignment: CrossAxisAlignment.stretch,
+        //               children: [
+        //                 Text(data[index].name),
+        //                 Text(data[index].phone),
+        //               ],
+        //             ),
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+        // ),
+      ),
     );
   }
 }
