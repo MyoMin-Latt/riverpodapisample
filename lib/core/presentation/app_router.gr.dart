@@ -15,33 +15,19 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    DevicesRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const DevicesPage(),
-      );
-    },
     SplashRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const SplashPage(),
       );
     },
+    UsersRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const UsersPage(),
+      );
+    },
   };
-}
-
-/// generated route for
-/// [DevicesPage]
-class DevicesRoute extends PageRouteInfo<void> {
-  const DevicesRoute({List<PageRouteInfo>? children})
-      : super(
-          DevicesRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'DevicesRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -54,6 +40,20 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [UsersPage]
+class UsersRoute extends PageRouteInfo<void> {
+  const UsersRoute({List<PageRouteInfo>? children})
+      : super(
+          UsersRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UsersRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
