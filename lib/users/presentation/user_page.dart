@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpodapisample/users/presentation/users_detail_page.dart';
 
+import '../../core/presentation/app_router.dart';
 import '../shared/users_provider.dart';
 
 @RoutePage()
@@ -87,41 +89,21 @@ class _UsersPageState extends ConsumerState<UsersPage> {
                       children: [
                         Text(userList[index].id.toString()),
                         Text(userList[index].name),
-                        Text(userList[index].username),
-                        Text(userList[index].email),
-                        Text(userList[index].phone),
-                        Text(userList[index].website),
-                      //  Text(userList[index].company.name),
-                      //  Text(userList[index].company.catchPhrase),
-                       // Text(userList[index].company.bs),
                       ],
                     ),
-                    //subtitle: Text(prodList[index].username),
+                    subtitle: Text(userList[index].username),
                     trailing: IconButton(
                         onPressed: () {},
                         icon: const Icon(
                           Icons.delete,
                         )),
+                    onTap: () {
+                      context.router.replace(
+                          UsersDetailRoute(usersModel: userList[index]));
+                    },
                   ),
                 ),
               );
             }));
   }
 }
-
-
-//     return Scaffold(
-//       appBar: AppBar(title: const Text("Uers")),
-//       body: listState.when(
-//         initial: () => const SizedBox(),
-//         loading: () => const Center(child: CircularProgressIndicator()),
-//         empty: () => const Center(child: Text("Empty Data")),
-//         noInternet: () => const Center(child: Text("noInternet")),
-//         success: (data) => const ShowData(),
-//         error: (err) => Center(
-//           child: Text(err.message ?? "Error - Try Again"),
-//         ),
-//       ),
-//     );
-//   }
-// }

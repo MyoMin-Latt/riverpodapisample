@@ -21,6 +21,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashPage(),
       );
     },
+    UsersDetailRoute.name: (routeData) {
+      final args = routeData.argsAs<UsersDetailRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UsersDetailPage(
+          args.usersModel,
+          key: args.key,
+        ),
+      );
+    },
     UsersRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -42,6 +52,44 @@ class SplashRoute extends PageRouteInfo<void> {
   static const String name = 'SplashRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [UsersDetailPage]
+class UsersDetailRoute extends PageRouteInfo<UsersDetailRouteArgs> {
+  UsersDetailRoute({
+    required UsersModel usersModel,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          UsersDetailRoute.name,
+          args: UsersDetailRouteArgs(
+            usersModel: usersModel,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'UsersDetailRoute';
+
+  static const PageInfo<UsersDetailRouteArgs> page =
+      PageInfo<UsersDetailRouteArgs>(name);
+}
+
+class UsersDetailRouteArgs {
+  const UsersDetailRouteArgs({
+    required this.usersModel,
+    this.key,
+  });
+
+  final UsersModel usersModel;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'UsersDetailRouteArgs{usersModel: $usersModel, key: $key}';
+  }
 }
 
 /// generated route for
