@@ -12,3 +12,4 @@ Auto Route
 // context.router.pop();
 // context.router.maybePop();
 
+route > pop, back, replace
