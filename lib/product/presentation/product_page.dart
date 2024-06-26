@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpodapisample/all_feat.dart';
 import 'package:riverpodapisample/product/shared/product_providers.dart';
 
 @RoutePage()
@@ -84,14 +85,26 @@ class _ProductPageState extends ConsumerState<ProductPage> {
                 title: Text(prodList[index].name),
                 subtitle: Text(prodList[index].phone),
                 trailing: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.delete,
-                    )),
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.delete,
+                  ),
+                ),
+                onTap: () {
+                  print("prodList index => ${prodList[index]}");
+                  AutoRouter.of(context).push(
+                    ProductDetailRoute(productModel: prodList[index]),
+                  );
+                },
               ),
             ),
           );
         },
+        // Click Action Widget
+        // Inkwell, GestureDetector
+
+        // Navigate
+
         // success: (data) => const Center(child: Text(" Data")),
         // success: (data) => Padding(
         //   padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
