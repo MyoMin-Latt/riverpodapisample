@@ -20,7 +20,20 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
     print('ProductDetailPage => ${widget.productModel}');
     print('ProductDetailPage => ${widget.productModel.name}');
     return Scaffold(
-      appBar: AppBar(title: Text(widget.productModel.name)),
+      appBar: AppBar(
+        title: Text(widget.productModel.name),
+        actions: [
+          InkWell(
+              onTap: () {
+                print('click Icon');
+                // AutoRouter.of(context).pop(); // back
+                // context.router.pop();
+                context.router.maybePop();
+              },
+              child: Icon(Icons.arrow_back)),
+          const SizedBox(width: 20),
+        ],
+      ),
       body: Container(
         width: 250,
         height: 50,

@@ -5,3 +5,10 @@ Widget
  - Row, Column
  - InkWell, GestureDetector
  - SizedBox
+
+
+Auto Route
+// AutoRouter.of(context).pop(); // back
+// context.router.pop();
+// context.router.maybePop();
+

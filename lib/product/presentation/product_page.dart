@@ -92,9 +92,11 @@ class _ProductPageState extends ConsumerState<ProductPage> {
                 ),
                 onTap: () {
                   print("prodList index => ${prodList[index]}");
-                  AutoRouter.of(context).push(
-                    ProductDetailRoute(productModel: prodList[index]),
-                  );
+                  // AutoRouter.of(context).push(
+                  //   ProductDetailRoute(productModel: prodList[index]),
+                  // );
+                  context.router.replace(
+                      ProductDetailRoute(productModel: prodList[index]));
                 },
               ),
             ),
