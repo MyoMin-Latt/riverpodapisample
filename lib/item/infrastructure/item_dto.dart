@@ -6,9 +6,7 @@ import 'package:riverpodapisample/item/feat_item.dart';
 part 'item_dto.freezed.dart';
 part 'item_dto.g.dart';
 
-double doubleFromJson(dynamic json) => json is String ? double.parse(json) : json.toDouble();
 
-int intFromJson(dynamic json) => json is String ? int.parse(json) : json.toInt();
 
 @freezed
 class ItemDto with _$ItemDto {
