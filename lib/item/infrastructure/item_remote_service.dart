@@ -7,6 +7,7 @@ class ItemRemoteService {
   final Dio _dio;
 
   ItemRemoteService(this._dio);
+
   Future<NetworkResult<List<ItemDto>>> getItemList() async {
     try {
       final response = await _dio.get('item');
@@ -35,4 +36,6 @@ class ItemRemoteService {
       }
     }
   }
+
+  // delete
 }

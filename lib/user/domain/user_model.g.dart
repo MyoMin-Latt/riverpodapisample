@@ -12,9 +12,10 @@ _$UserModelImpl _$$UserModelImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       username: json['username'] as String,
       email: json['email'] as String,
+      address: AddressModel.fromJson(json['address'] as Map<String, dynamic>),
       phone: json['phone'] as String,
       website: json['website'] as String,
-      company: Company.fromJson(json['company'] as Map<String, dynamic>),
+      company: CompanyModel.fromJson(json['company'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
@@ -23,21 +24,52 @@ Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
       'name': instance.name,
       'username': instance.username,
       'email': instance.email,
+      'address': instance.address,
       'phone': instance.phone,
       'website': instance.website,
       'company': instance.company,
     };
 
-_$CompanyImpl _$$CompanyImplFromJson(Map<String, dynamic> json) =>
-    _$CompanyImpl(
+_$CompanyModelImpl _$$CompanyModelImplFromJson(Map<String, dynamic> json) =>
+    _$CompanyModelImpl(
       name: json['name'] as String,
       catchPhrase: json['catchPhrase'] as String,
       bs: json['bs'] as String,
     );
 
-Map<String, dynamic> _$$CompanyImplToJson(_$CompanyImpl instance) =>
+Map<String, dynamic> _$$CompanyModelImplToJson(_$CompanyModelImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'catchPhrase': instance.catchPhrase,
       'bs': instance.bs,
+    };
+
+_$AddressModelImpl _$$AddressModelImplFromJson(Map<String, dynamic> json) =>
+    _$AddressModelImpl(
+      street: json['street'] as String,
+      suite: json['suite'] as String,
+      city: json['city'] as String,
+      zipcode: json['zipcode'] as String,
+      geo: GeoModel.fromJson(json['geo'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$AddressModelImplToJson(_$AddressModelImpl instance) =>
+    <String, dynamic>{
+      'street': instance.street,
+      'suite': instance.suite,
+      'city': instance.city,
+      'zipcode': instance.zipcode,
+      'geo': instance.geo,
+    };
+
+_$GeoModelImpl _$$GeoModelImplFromJson(Map<String, dynamic> json) =>
+    _$GeoModelImpl(
+      lat: (json['lat'] as num).toDouble(),
+      lng: (json['lng'] as num).toDouble(),
+    );
+
+Map<String, dynamic> _$$GeoModelImplToJson(_$GeoModelImpl instance) =>
+    <String, dynamic>{
+      'lat': instance.lat,
+      'lng': instance.lng,
     };

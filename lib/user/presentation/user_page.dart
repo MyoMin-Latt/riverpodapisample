@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpodapisample/core/presentation/app_router.dart';
 import 'package:riverpodapisample/user/shared/user_providers.dart';
 
 @RoutePage()
@@ -53,18 +54,6 @@ class _UserPageState extends ConsumerState<UserPage> {
           success: (uList) {
           return ListView.builder(
             itemCount: uList.length,
-            /* itemBuilder: (context, index) => Card(
-              child: ListTile(
-                title: Text(uList[index].name),
-                subtitle: Text(uList[index].phone),
-                
-                trailing: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.delete,
-                    )),
-              ),
-            ), */
             itemBuilder: (context, index) => Card(
   child: ListTile(
     title: Column(
@@ -74,7 +63,14 @@ class _UserPageState extends ConsumerState<UserPage> {
         Text('Name: ${uList[index].name}'),
         Text('Phone: ${uList[index].username}'),
         Text('Email: ${uList[index].email}'),
-        Text('Address: ${uList[index].phone}'),
+        Text('Address'),
+        Text('Street: ${uList[index].address.street}'),
+        Text('Suite: ${uList[index].address.suite}'),
+        Text('City: ${uList[index].address.city}'),
+        Text('Zipcode: ${uList[index].address.zipcode}'),
+        Text('Lat: ${uList[index].address.geo.lat}'),
+        Text('Lng: ${uList[index].address.geo.lng}'),
+        Text('Phone: ${uList[index].phone}'),
         Text('Website: ${uList[index].website}'),
         Text('Company Name: ${uList[index].company.name}'),
       ],
@@ -87,6 +83,9 @@ class _UserPageState extends ConsumerState<UserPage> {
         Icons.delete,
       ),
     ),
+    onTap: () {
+                  context.router.push(UserDetailRoute(user: uList[index]));
+                },
   ),
 ),
 
