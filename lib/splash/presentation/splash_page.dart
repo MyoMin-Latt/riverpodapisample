@@ -19,7 +19,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
   }
 
   Future<void> gotoHome() async {
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 1));
     AutoRouter.of(context).replaceAll([const ProductRoute()]);
     // AutoRouter.of(context).push(const ProductRoute());
   }

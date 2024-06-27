@@ -1,7 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpodapisample/all_feat.dart';
 
-// new provider > must restart 
+// new provider > must restart
 
 final productRemoteServiceProvider = Provider((ref) {
   return ProductRemoteService(ref.watch(dioProvider));
@@ -25,4 +25,9 @@ final productDeleteNotifierTwoProvider =
     StateNotifierProvider<ProductDeleteNotifierTwo, ProductDeleteStateTwo>(
         (ref) {
   return ProductDeleteNotifierTwo(ref.watch(productRepositoryProvider));
+});
+
+final productAddNotifierTwoProvider =
+    StateNotifierProvider<ProductAddNotifier, ProductAddState>((ref) {
+  return ProductAddNotifier(ref.watch(productRepositoryProvider));
 });

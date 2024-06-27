@@ -8,7 +8,7 @@ part 'product_dto.g.dart';
 
 @freezed
 class ProductDto with _$ProductDto {
-  const ProductDto._();
+  const ProductDto._(); // doDomain
   const factory ProductDto({
     @JsonKey(name: "createdAt", fromJson: stringFromJson)
     required String createdAt,

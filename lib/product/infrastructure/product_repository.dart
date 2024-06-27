@@ -43,6 +43,8 @@ class ProductRepository {
       return left(ResponseInfoError(e.code, e.message));
     }
   }
+
+  // retrun string
   Future<Either<ResponseInfoError, DomainResult<String>>> deleteProductTwo(
       String id) async {
     print("deleteProduct in repo => $id");
@@ -53,6 +55,25 @@ class ProductRepository {
         hodStaffs.when(
           noConnection: DomainResult.noInternet,
           result: (entity) => DomainResult.data(entity),
+        ),
+      );
+    } on ApiException catch (e) {
+      return left(ResponseInfoError(e.code, e.message));
+    }
+  }
+
+  // add
+  Future<Either<ResponseInfoError, DomainResult<ProductModel>>> addProduct(
+      ProductModel product) async {
+    print("deleteProduct in repo => $id");
+    try {
+      final hodStaffs = await _remoteService.addProduct(product.toDto());
+      // The argument type 'ProductModel' can't be assigned to the parameter type 'ProductDto'.
+
+      return right(
+        hodStaffs.when(
+          noConnection: DomainResult.noInternet,
+          result: (entity) => DomainResult.data(entity.domain),
         ),
       );
     } on ApiException catch (e) {

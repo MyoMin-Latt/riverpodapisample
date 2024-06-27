@@ -95,6 +95,17 @@ class _ProductPageState extends ConsumerState<ProductPage> {
         );
       },
     );
+
+    ref.listen(
+      productAddNotifierTwoProvider,
+      (previous, state) {
+        state.maybeWhen(
+            orElse: () {},
+            success: (data) {
+              getProductList();
+            });
+      },
+    );
     final listState = ref.watch(productListNotifierProvider); // ui
 
     return Scaffold(
@@ -103,9 +114,7 @@ class _ProductPageState extends ConsumerState<ProductPage> {
         actions: [
           IconButton(
             onPressed: getProductList,
-            icon: const Icon(
-              Icons.download,
-            ),
+            icon: const Icon(Icons.download),
           )
         ],
       ),
@@ -198,6 +207,10 @@ class _ProductPageState extends ConsumerState<ProductPage> {
         //     ),
         //   ),
         // ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => context.router.push(const ProductAddRoute()),
+        child: const Icon(Icons.add),
       ),
     );
   }

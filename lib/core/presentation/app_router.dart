@@ -13,5 +13,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
             page: ProductDetailRoute.page,
             path: "/product-detial"), // import 'package:flutter/material.dart';
+        AutoRoute(page: ProductAddRoute.page, path: "/product-add"),
       ];
 }
