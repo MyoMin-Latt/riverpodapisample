@@ -81,36 +81,20 @@ class _ProductPageState extends ConsumerState<ProductPage> {
       },
     );
 
-    // ref.listen(
-    //   productDeleteNotifierTwoProvider,
-    //   (previous, state) {
-    //     print("productDeleteNotifierTwoProvider => $state");
-
-    //     // when, maybeWhen
-    //     state.maybeWhen(
-    //       orElse: () => print("productDeleteNotifierTwoProvider orelse"),
-    //       loading: () => print("productDeleteNotifierTwoProvider loading"),
-    //       success: (data) {
-    //         showDialog(
-    //           context: context,
-    //           builder: (context) => AlertDialog(
-    //             title: const Text("Delete Item"),
-    //             content: Text(data),
-    //             actions: [
-    //               TextButton(
-    //                   onPressed: () {
-    //                     // normal
-    //                     Navigator.of(context).pop();
-    //                   },
-    //                   child: const Text("OK"))
-    //             ],
-    //           ),
-    //         );
-    //         getProductList();
-    //       },
-    //     );
-    //   },
-    // );
+    ref.listen(
+      productDeleteNotifierTwoProvider,
+      (previous, state) {
+        print("productDeleteNotifierTwoProvider => $state");
+        // when, maybeWhen
+        state.maybeWhen(
+          orElse: () => print("productDeleteNotifierTwoProvider orelse"),
+          loading: () => print("productDeleteNotifierTwoProvider loading"),
+          success: (data) {
+            getProductList();
+          },
+        );
+      },
+    );
     final listState = ref.watch(productListNotifierProvider); // ui
 
     return Scaffold(
@@ -169,8 +153,8 @@ class _ProductPageState extends ConsumerState<ProductPage> {
                   ),
                 ),
                 onTap: () {
-                  context.router.replace(
-                      ProductDetailRoute(productModel: prodList[index]));
+                  context.router
+                      .push(ProductDetailRoute(productModel: prodList[index]));
                 },
               ),
             ),
