@@ -13,3 +13,6 @@ Auto Route
 // context.router.maybePop();
 
 route > pop, back, replace
+
+// EAT and Sleep, Take rest, Drink Water over 1 liter (rec 2 liter)
+

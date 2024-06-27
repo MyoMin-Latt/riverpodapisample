@@ -43,6 +43,74 @@ class _ProductPageState extends ConsumerState<ProductPage> {
         );
       },
     );
+
+    ref.listen(
+      productDeleteNotifierProvider,
+      (previous, state) {
+        print("productDeleteNotifierProvider => $state");
+
+        // when, maybeWhen
+        state.maybeWhen(
+          orElse: () => print("productDeleteNotifierProvider orelse"),
+          loading: () => print("productDeleteNotifierProvider loading"),
+          success: (data) {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: const Text("Delete Item"),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(data.id),
+                    Text(data.name),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                      onPressed: () {
+                        // normal
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text("OK"))
+                ],
+              ),
+            );
+            getProductList();
+          },
+        );
+      },
+    );
+
+    // ref.listen(
+    //   productDeleteNotifierTwoProvider,
+    //   (previous, state) {
+    //     print("productDeleteNotifierTwoProvider => $state");
+
+    //     // when, maybeWhen
+    //     state.maybeWhen(
+    //       orElse: () => print("productDeleteNotifierTwoProvider orelse"),
+    //       loading: () => print("productDeleteNotifierTwoProvider loading"),
+    //       success: (data) {
+    //         showDialog(
+    //           context: context,
+    //           builder: (context) => AlertDialog(
+    //             title: const Text("Delete Item"),
+    //             content: Text(data),
+    //             actions: [
+    //               TextButton(
+    //                   onPressed: () {
+    //                     // normal
+    //                     Navigator.of(context).pop();
+    //                   },
+    //                   child: const Text("OK"))
+    //             ],
+    //           ),
+    //         );
+    //         getProductList();
+    //       },
+    //     );
+    //   },
+    // );
     final listState = ref.watch(productListNotifierProvider); // ui
 
     return Scaffold(
@@ -85,16 +153,22 @@ class _ProductPageState extends ConsumerState<ProductPage> {
                 title: Text(prodList[index].name),
                 subtitle: Text(prodList[index].phone),
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // string return
+                    // ref
+                    //     .read(productDeleteNotifierTwoProvider.notifier)
+                    //     .deleteProductTwo(prodList[index].id);
+
+                    // obj return
+                    ref
+                        .read(productDeleteNotifierProvider.notifier)
+                        .deleteProduct(prodList[index].id);
+                  },
                   icon: const Icon(
                     Icons.delete,
                   ),
                 ),
                 onTap: () {
-                  print("prodList index => ${prodList[index]}");
-                  // AutoRouter.of(context).push(
-                  //   ProductDetailRoute(productModel: prodList[index]),
-                  // );
                   context.router.replace(
                       ProductDetailRoute(productModel: prodList[index]));
                 },
@@ -102,6 +176,16 @@ class _ProductPageState extends ConsumerState<ProductPage> {
             ),
           );
         },
+
+        //  onTap: () {
+        //   // print("prodList index => ${prodList[index]}");
+        //   // AutoRouter.of(context).push(
+        //   //   ProductDetailRoute(productModel: prodList[index]),
+        //   // );
+        //   // context.router.replace(
+        //   //     ProductDetailRoute(productModel: prodList[index]));
+        // },
+
         // Click Action Widget
         // Inkwell, GestureDetector
 
