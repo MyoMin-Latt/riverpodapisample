@@ -1,7 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:riverpodapisample/item/domain/item_model.dart';
-import 'package:riverpodapisample/item/infrastructure/item_remote_service.dart';
-
 import '../../all_feat.dart';
 
 class ItemRepository {
@@ -26,5 +23,20 @@ class ItemRepository {
     }
   }
 
-  // d
+  // delete
+  Future<Either<ResponseInfoError, DomainResult<String>>> deleteItem(String id) async {
+  try {
+    final deleteResult = await _remoteService.deleteItem(id);
+
+    return right(
+      deleteResult.when(
+        noConnection: () => const DomainResult.noInternet(),
+        result: (_) => DomainResult.data('success'),
+      ),
+    );
+  } on ApiException catch (e) {
+    return left(ResponseInfoError(e.code, e.message));
+  }
+} 
+
 }

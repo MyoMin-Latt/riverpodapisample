@@ -13,3 +13,8 @@ final itemListNotifierProvider =
     StateNotifierProvider<ItemListNotifier, ItemListState>((ref) {
   return ItemListNotifier(ref.watch(itemRepositoryProvider));
 });
+
+final ItemDeleteNotifieProvider =
+    StateNotifierProvider<ItemDeleteNotifier, ItemDeleteState>((ref) {
+  return ItemDeleteNotifier(ref.watch(itemRepositoryProvider));
+});

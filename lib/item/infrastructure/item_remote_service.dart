@@ -1,6 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:riverpodapisample/item/infrastructure/item_dto.dart';
-
 import '../../all_feat.dart';
 
 class ItemRemoteService {
@@ -38,4 +36,28 @@ class ItemRemoteService {
   }
 
   // delete
+  Future<NetworkResult<void>> deleteItem(String id) async {
+    try {
+      final response = await _dio.delete('item/$id');
+      if (response.statusCode == 200) {
+        return const NetworkResult.result(null);
+      } else {
+        throw ApiException(
+          code: response.statusCode,
+          message: response.statusMessage,
+        );
+      }
+    } on DioException catch (e) {
+      if (e.isNoConnectionError) {
+        return const NetworkResult.noConnection();
+      } else if (e.error != null) {
+        throw ApiException(
+          code: e.response?.statusCode,
+          message: e.response?.statusMessage,
+        );
+      } else {
+        rethrow;
+      }
+    }
+  }
 }
