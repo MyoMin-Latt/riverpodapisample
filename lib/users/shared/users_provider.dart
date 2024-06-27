@@ -17,3 +17,8 @@ final usersListNotifierProvider =
     StateNotifierProvider<UsersListNotifier, UsersListState>((ref) {
   return UsersListNotifier(ref.watch(usersRepositoryProvider));
 });
+
+// final usersDeleteNotifierProvider =
+//     StateNotifierProvider<UsersNotifier, User>((ref) {
+//   return UsersNotifier(ref.watch(usersRepositoryProvider));
+// });

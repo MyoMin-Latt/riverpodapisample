@@ -12,7 +12,9 @@ class UsersRemoteService {
   Future<NetworkResult<List<UsersDto>>> getUsersList() async {
     try {
       final response = await _dio.get('users');
-      print(response);
+
+      //print(response);
+      // print('deleteuserid');
       if (response.statusCode == 200) {
         var resData = response.data as List<dynamic>;
         var prodList = resData.map((e) => UsersDto.fromJson(e)).toList();
@@ -35,6 +37,20 @@ class UsersRemoteService {
       } else {
         rethrow;
       }
+    }
+  }
+
+  Future<void> deleteUsersId(String id) async {
+    try {
+      final record = await _dio.delete('id');
+      if (record.statusCode == 200) {
+        var deleteid = record.data;
+        return deleteid;
+      }
+    } catch (e) {
+      throw ApiException(
+        message: AppStrings.unknownError,
+      );
     }
   }
 }

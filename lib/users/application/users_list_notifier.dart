@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -22,7 +23,7 @@ class UsersListNotifier extends StateNotifier<UsersListState> {
   UsersListNotifier(this._repository) : super(const UsersListState.initial());
 
   Future<void> getUsersList() async {
-    print("UsersListNotifier => init");
+    //print("UsersListNotifier => init");
     state = const UsersListState.loading();
     final failureOrSuccess = await _repository.getUsersList();
     state = failureOrSuccess.fold(
@@ -35,4 +36,16 @@ class UsersListNotifier extends StateNotifier<UsersListState> {
       ),
     );
   }
+
+  // Future<void> deleteUsersId(String id) async {
+  //   // state = const UsersListState.loading();
+  //   final failureOrSuccess = await _repository.deleteUsersId(id);
+  //   state = failureOrSuccess.fold((l) => UsersListState.error(l), (r) async {
+  //     await failureOrSuccess;
+  //   });
+  // }
+}
+
+class DeleteIDNotifier extends StateNotifier<String> {
+  DeleteIDNotifier(super.state);
 }

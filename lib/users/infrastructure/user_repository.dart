@@ -8,6 +8,7 @@ class UsersRepository {
   final UsersRemoteService _remoteService;
 
   UsersRepository(this._remoteService);
+
   Future<Either<ResponseInfoError, DomainResult<List<UsersModel>>>>
       getUsersList() async {
     try {
@@ -21,6 +22,15 @@ class UsersRepository {
           ),
         ),
       );
+    } on ApiException catch (e) {
+      return left(ResponseInfoError(e.code, e.message));
+    }
+  }
+
+  Future<Either<ResponseInfoError, Unit>> deleteUsersId(String id) async {
+    try {
+      await _remoteService.deleteUsersId(id);
+      return right(unit);
     } on ApiException catch (e) {
       return left(ResponseInfoError(e.code, e.message));
     }

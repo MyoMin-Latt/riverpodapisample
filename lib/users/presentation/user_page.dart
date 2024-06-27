@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -25,9 +27,16 @@ class _UsersPageState extends ConsumerState<UsersPage> {
     Future.microtask(
       () {
         ref.read(usersListNotifierProvider.notifier).getUsersList();
+        // ref.read(usersListNotifierProvider.notifier).deleteUsersId();
       },
     );
   }
+
+  // Future<void> deleteUsersId() async {
+  //   Future.microtask(() {
+  //     ref.read(usersListNotifierProvider.notifier).deleteUsersId();
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -47,63 +56,66 @@ class _UsersPageState extends ConsumerState<UsersPage> {
     );
     final listState = ref.watch(usersListNotifierProvider); // ui
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Users"),
-          actions: [
-            IconButton(
-              onPressed: getUsersList,
-              icon: const Icon(
-                Icons.download,
-              ),
-            )
-          ],
+      appBar: AppBar(
+        title: const Text("Users"),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.download,
+            ),
+          )
+        ],
+      ),
+      body: listState.when(
+        initial: () => null,
+        loading: () => const Center(child: CircularProgressIndicator()),
+        empty: () => const Center(
+          child: Text(
+            "Empty Data",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+          ),
         ),
-        body: listState.when(
-            initial: () => null,
-            loading: () => const Center(child: CircularProgressIndicator()),
-            empty: () => const Center(
-                  child: Text(
-                    "Empty Data",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+        noInternet: () => const Center(
+            child: Text(
+          "noInternet",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+        )),
+        error: (err) => Center(
+          child: Text(
+            err.message ?? "Error - Try Again",
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+          ),
+        ),
+        success: (userList) {
+          return ListView.builder(
+            itemCount: userList.length,
+            itemBuilder: (context, index) => Card(
+              child: ListTile(
+                title: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(userList[index].id.toString()),
+                    Text(userList[index].name),
+                  ],
+                ),
+                subtitle: Text(userList[index].username),
+                trailing: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.delete,
                   ),
                 ),
-            noInternet: () => const Center(
-                    child: Text(
-                  "noInternet",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-                )),
-            error: (err) => Center(
-                  child: Text(
-                    err.message ?? "Error - Try Again",
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 22),
-                  ),
-                ),
-            success: (userList) {
-              return ListView.builder(
-                itemCount: userList.length,
-                itemBuilder: (context, index) => Card(
-                  child: ListTile(
-                    title: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(userList[index].id.toString()),
-                        Text(userList[index].name),
-                      ],
-                    ),
-                    subtitle: Text(userList[index].username),
-                    trailing: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.delete,
-                        )),
-                    onTap: () {
-                      context.router.replace(
-                          UsersDetailRoute(usersModel: userList[index]));
-                    },
-                  ),
-                ),
-              );
-            }));
+                onTap: () {
+                  context.router.replace(
+                    UsersDetailRoute(usersModel: userList[index]),
+                  );
+                },
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
 }
