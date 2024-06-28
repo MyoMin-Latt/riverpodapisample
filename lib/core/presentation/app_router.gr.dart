@@ -27,6 +27,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ItemPage(),
       );
     },
+    ItemUpdateRoute.name: (routeData) {
+      final args = routeData.argsAs<ItemUpdateRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ItemUpdatePage(
+          args.item,
+          key: args.key,
+        ),
+      );
+    },
     ProductRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -84,6 +94,44 @@ class ItemRoute extends PageRouteInfo<void> {
   static const String name = 'ItemRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ItemUpdatePage]
+class ItemUpdateRoute extends PageRouteInfo<ItemUpdateRouteArgs> {
+  ItemUpdateRoute({
+    required ItemModel item,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ItemUpdateRoute.name,
+          args: ItemUpdateRouteArgs(
+            item: item,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ItemUpdateRoute';
+
+  static const PageInfo<ItemUpdateRouteArgs> page =
+      PageInfo<ItemUpdateRouteArgs>(name);
+}
+
+class ItemUpdateRouteArgs {
+  const ItemUpdateRouteArgs({
+    required this.item,
+    this.key,
+  });
+
+  final ItemModel item;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ItemUpdateRouteArgs{item: $item, key: $key}';
+  }
 }
 
 /// generated route for
