@@ -16,7 +16,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: SplashRoute.page, path: "/"),
         AutoRoute(page: DevicesRoute.page, path: "/devices"),
         // AutoRoute(page: UsersRoute.page, path: "/users"),
-        //AutoRoute(page: UsersDetailRoute.page, path: "/users_datail"),
-        //AutoRoute(page: UserAddRoute.page, path: "/users_add")
+        // AutoRoute(page: UsersDetailRoute.page, path: "/users_datail"),
+        // AutoRoute(page: UserAddRoute.page, path: "/users_add")
       ];
 }

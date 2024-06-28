@@ -4,8 +4,8 @@ import 'package:dio/dio.dart';
 
 Provider<Dio> dioProvider = Provider((ref) {
   // Dio dio = Dio(BaseOptions(baseUrl: 'https://jsonplaceholder.typicode.com/'));
-  Dio dio = Dio(
-      BaseOptions(baseUrl: 'https://667a33ed18a459f63952b15b.mockapi.io/api/'));
+  Dio dio = Dio(BaseOptions(
+      baseUrl: 'https://667a33ed18a459f63952b15b.mockapi.io/api/v3/'));
   dio.interceptors.add(
     PrettyDioLogger(
       requestHeader: true,

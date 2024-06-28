@@ -44,6 +44,42 @@ class _DevicesPageState extends ConsumerState<DevicesPage> {
       },
     );
     final listState = ref.watch(devicesListNotifierProvider); // ui
+    ref.listen(
+      devicesDeleteNotifierProvider,
+      (previous, state) {
+        print("devicesDeleteNotifierProvider => $state");
+
+        // when, maybeWhen
+        state.maybeWhen(
+          orElse: () => print("devicesDeleteNotifierProvider orelse"),
+          loading: () => print("decicesDeleteNotifierProvider loading"),
+          success: (data) {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: const Text("Delete Item"),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(data.createdAt),
+                    Text(data.deviceName),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                      onPressed: () {
+                        // normal
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text("OK"))
+                ],
+              ),
+            );
+            getDevicesList();
+          },
+        );
+      },
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -78,12 +114,12 @@ class _DevicesPageState extends ConsumerState<DevicesPage> {
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
           ),
         ),
-        success: (userList) {
+        success: (devicesList) {
           return ListView.builder(
-            itemCount: userList.length,
+            itemCount: devicesList.length,
             itemBuilder: (context, index) => Card(
               child: ListTile(
-                subtitle: Text(userList[index].deviceName),
+                subtitle: Text(devicesList[index].deviceName),
                 trailing: IconButton(
                   onPressed: () {
                     // ref

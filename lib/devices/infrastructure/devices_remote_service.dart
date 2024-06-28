@@ -37,4 +37,34 @@ class DevicesRemoteService {
       }
     }
   }
+
+//delete devices
+  Future<NetworkResult<DevicesDto>> deleteDevices(String id) async {
+    try {
+      final response = await _dio.delete('devices');
+      print(response);
+      if (response.statusCode == 200) {
+        var resData = response.data;
+        var devices = DevicesDto.fromJson(resData);
+
+        return NetworkResult.result(devices);
+      } else {
+        throw ApiException(
+          code: response.statusCode,
+          message: response.statusMessage,
+        );
+      }
+    } on DioException catch (e) {
+      if (e.isNoConnectionError) {
+        return const NetworkResult.noConnection();
+      } else if (e.error != null) {
+        throw ApiException(
+          code: e.response?.statusCode,
+          message: e.response?.statusMessage,
+        );
+      } else {
+        rethrow;
+      }
+    }
+  }
 }
