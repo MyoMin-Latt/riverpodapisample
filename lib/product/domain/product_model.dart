@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:riverpodapisample/all_feat.dart';
 
 part 'product_model.freezed.dart';
 

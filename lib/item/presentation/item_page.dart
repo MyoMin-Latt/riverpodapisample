@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpodapisample/core/presentation/app_router.dart';
 import 'package:riverpodapisample/item/shared/item_providers.dart';
 
 @RoutePage()
@@ -68,10 +69,21 @@ class _ItemPageState extends ConsumerState<ItemPage> {
             });
       },
     );
-    //delete notifier
+    //add notifier
+    ref.listen(
+      itemAddNotifierProvider,
+      (previous, state) {
+        state.maybeWhen(
+            orElse: () {},
+            success: (data) {
+              getItemList();
+            });
+      },
+    );
     final listState = ref.watch(itemListNotifierProvider);
 
     return Scaffold(
+      
       appBar: AppBar(title: const Text("Item")),
       body: listState.when(
           initial: () => const SizedBox(),
@@ -126,14 +138,25 @@ class _ItemPageState extends ConsumerState<ItemPage> {
                   Icons.delete,
                 ),
               ),
-              
-            ),
+                
+            ),  
           ),
 
           );
         },
-          error: (err) =>
-              Center(child: Text(err.message ?? "Error - Try Again"))),
+        
+          /* error: (err) =>
+              Center(child: Text(err.message ?? "Error - Try Again")) */
+              error: (error) {
+                TextButton(onPressed: (){
+                  ref.read(itemListNotifierProvider.notifier).getItemList();
+                }, child: Text(error.toString()));
+              },
+      ),
+      floatingActionButton: FloatingActionButton(
+              onPressed: () => context.router.push(const ItemAddRoute()),
+              child: const Icon(Icons.add),
+              ),
     );
   }
 }

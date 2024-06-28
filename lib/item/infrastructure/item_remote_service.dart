@@ -60,4 +60,37 @@ class ItemRemoteService {
       }
     }
   }
+
+  //Add
+   Future<NetworkResult<ItemDto>> addItem(ItemDto item) async {
+    print("add item in remote => $item");
+    try {
+      final response = await _dio.post('item', data: item.toJson());
+      print("response code => ${response.statusCode}");
+      print("response message => ${response.statusMessage}");
+      if (response.statusCode == 201) {
+        var resData = response.data as dynamic;
+        var item = ItemDto.fromJson(resData);
+
+        return NetworkResult.result(item);
+      } else {
+        throw ApiException(
+          code: response.statusCode,
+          message: response.statusMessage,
+        );
+      }
+    } on DioException catch (e) {
+      if (e.isNoConnectionError) {
+        return const NetworkResult.noConnection();
+      } else if (e.error != null) {
+        throw ApiException(
+          code: e.response?.statusCode,
+          message: e.response?.statusMessage,
+        );
+      } else {
+        rethrow;
+      }
+    }
+  } 
 }
+

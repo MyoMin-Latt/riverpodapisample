@@ -39,4 +39,24 @@ class ItemRepository {
   }
 } 
 
+// add
+   Future<Either<ResponseInfoError, DomainResult<ItemModel>>> addItem(
+      ItemModel item) async {
+    print("add item in repo => $id");
+    try {
+      final hodStaffs = await _remoteService.addItem(item.toDto());
+      // The argument type 'ItemModel' can't be assigned to the parameter type 'ItemDto'.
+
+      return right(
+        hodStaffs.when(
+          noConnection: DomainResult.noInternet,
+          result: (entity) => DomainResult.data(entity.domain),
+        ),
+      );
+    } on ApiException catch (e) {
+      return left(ResponseInfoError(e.code, e.message));
+    }
+  }
+  
 }
+ 

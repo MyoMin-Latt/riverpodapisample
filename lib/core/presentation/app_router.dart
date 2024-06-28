@@ -9,7 +9,8 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(page: SplashRoute.page, path: "/"),
         AutoRoute(page: ProductRoute.page, path: "/product"),
-        AutoRoute(page: ItemRoute.page, path: "/item"), 
+        AutoRoute(page: ItemRoute.page, path: "/item"),
+        AutoRoute(page: ItemAddRoute.page, path: "/item-add"), 
         AutoRoute(page: UserRoute.page, path: "/user"),
         AutoRoute(page: UserDetailRoute.page, path: "/userdetail"),
       ];

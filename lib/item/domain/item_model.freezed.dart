@@ -123,12 +123,13 @@ class __$$ItemModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ItemModelImpl implements _ItemModel {
+class _$ItemModelImpl extends _ItemModel {
   const _$ItemModelImpl(
       {required this.itemName,
       required this.price,
       required this.quantity,
-      required this.id});
+      required this.id})
+      : super._();
 
   @override
   final String itemName;
@@ -167,12 +168,13 @@ class _$ItemModelImpl implements _ItemModel {
       __$$ItemModelImplCopyWithImpl<_$ItemModelImpl>(this, _$identity);
 }
 
-abstract class _ItemModel implements ItemModel {
+abstract class _ItemModel extends ItemModel {
   const factory _ItemModel(
       {required final String itemName,
       required final num price,
       required final num quantity,
       required final String id}) = _$ItemModelImpl;
+  const _ItemModel._() : super._();
 
   @override
   String get itemName;
