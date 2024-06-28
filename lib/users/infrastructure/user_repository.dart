@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+//import 'package:riverpodapisample/users/infrastructure/users_dto.dart';
 import 'package:riverpodapisample/users/infrastructure/users_remote_service.dart';
 
 import '../../all_feat.dart';
@@ -27,10 +28,36 @@ class UsersRepository {
     }
   }
 
-  Future<Either<ResponseInfoError, Unit>> deleteUsersId(String id) async {
+//delete object
+  Future<Either<ResponseInfoError, DomainResult<String>>> deleteUsers(
+      String id) async {
+    print("deleteUsers in repo => $id");
     try {
-      await _remoteService.deleteUsersId(id);
-      return right(unit);
+      final hodStaffs = await _remoteService.deleteUsers(id);
+
+      return right(
+        hodStaffs.when(
+          noConnection: DomainResult.noInternet,
+          result: (entity) => DomainResult.data(entity),
+        ),
+      );
+    } on ApiException catch (e) {
+      return left(ResponseInfoError(e.code, e.message));
+    }
+  }
+
+  //add users
+  Future<Either<ResponseInfoError, DomainResult<UsersModel>>> addUsers(
+      UsersModel users) async {
+    try {
+      final hodStaffs = await _remoteService.addUsers(users.toDto());
+
+      return right(
+        hodStaffs.when(
+          noConnection: DomainResult.noInternet,
+          result: (entity) => DomainResult.data(entity.toDto().domain), /////
+        ),
+      );
     } on ApiException catch (e) {
       return left(ResponseInfoError(e.code, e.message));
     }

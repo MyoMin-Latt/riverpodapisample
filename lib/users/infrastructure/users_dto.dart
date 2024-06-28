@@ -35,7 +35,6 @@ class UsersDto with _$UsersDto {
         address: address.domain,
         company: company.domain,
       );
-      
 }
 
 @freezed

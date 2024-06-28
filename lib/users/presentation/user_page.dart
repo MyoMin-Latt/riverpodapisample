@@ -1,9 +1,7 @@
-import 'dart:ffi';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpodapisample/users/presentation/users_detail_page.dart';
+//import 'package:riverpodapisample/users/presentation/users_detail_page.dart';
 
 import '../../core/presentation/app_router.dart';
 import '../shared/users_provider.dart';
@@ -27,16 +25,9 @@ class _UsersPageState extends ConsumerState<UsersPage> {
     Future.microtask(
       () {
         ref.read(usersListNotifierProvider.notifier).getUsersList();
-        // ref.read(usersListNotifierProvider.notifier).deleteUsersId();
       },
     );
   }
-
-  // Future<void> deleteUsersId() async {
-  //   Future.microtask(() {
-  //     ref.read(usersListNotifierProvider.notifier).deleteUsersId();
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -54,15 +45,62 @@ class _UsersPageState extends ConsumerState<UsersPage> {
         );
       },
     );
+    ref.listen(
+      usersDeleteNotifierProvider,
+      (previous, state) {
+        //print("usersDeleteNotifierProvider => $state");
+
+        // when, maybeWhen
+        state.maybeWhen(
+          orElse: () => print("usersDeleteNotifierProvider orelse"),
+          //loading: () => print("usersDeleteNotifierProvider loading"),
+          success: (data) {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: const Text("Delete Item"),
+                content: const Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Text(data.id.toString()),
+                    // Text(data.name),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                      onPressed: () {
+                        // normal
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text("OK"))
+                ],
+              ),
+            );
+            getUsersList();
+          },
+        );
+      },
+    );
+    //add user listen
+    ref.listen(
+      usersAddNotifierTwoProvider,
+      (previous, state) {
+        state.maybeWhen(
+            orElse: () {},
+            success: (data) {
+              getUsersList();
+            });
+      },
+    );
     final listState = ref.watch(usersListNotifierProvider); // ui
     return Scaffold(
       appBar: AppBar(
         title: const Text("Users"),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => context.router.push(const UserAddRoute()),
             icon: const Icon(
-              Icons.download,
+              Icons.add,
             ),
           )
         ],
@@ -101,7 +139,14 @@ class _UsersPageState extends ConsumerState<UsersPage> {
                 ),
                 subtitle: Text(userList[index].username),
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // ref
+                    //     .read(productDeleteNotifierProvider.notifier)
+                    //     .deleteProduct(prodList[index].id);
+                    ref
+                        .read(usersDeleteNotifierProvider.notifier)
+                        .deleteUsers(userList[index].id.toString());
+                  },
                   icon: const Icon(
                     Icons.delete,
                   ),
