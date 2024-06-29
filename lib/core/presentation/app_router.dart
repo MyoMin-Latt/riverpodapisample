@@ -3,7 +3,9 @@ import '../../all_feat.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../devices/presentation/devices_add_page.dart';
 import '../../devices/presentation/devices_page.dart';
+import '../../devices/presentation/devices_update_page.dart';
 import '../../users/domain/users_model.dart';
 import '../../users/presentation/user_add_page.dart';
 import '../../users/presentation/users_detail_page.dart';
@@ -15,6 +17,8 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(page: SplashRoute.page, path: "/"),
         AutoRoute(page: DevicesRoute.page, path: "/devices"),
+        AutoRoute(page: DevicesAddRoute.page, path: "/devices-add"),
+        AutoRoute(page: DevicesUpdateRoute.page, path: "/devices-update"),
         // AutoRoute(page: UsersRoute.page, path: "/users"),
         // AutoRoute(page: UsersDetailRoute.page, path: "/users_datail"),
         // AutoRoute(page: UserAddRoute.page, path: "/users_add")

@@ -1,0 +1,14 @@
+Status: 400 Bad Request
+
+put
+
+Update Page (Model)
+nameController
+brandController
+
+init{
+     nameController.text = model.name;
+}
+
+update(Model model)
+put("/${model.id}")

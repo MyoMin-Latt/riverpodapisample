@@ -28,11 +28,4 @@ class DevicesDto with _$DevicesDto {
         brand: brand,
         createdAt: createdAt,
       );
-
-  DevicesModel toDomain() => DevicesModel(
-        deviceID: deviceID,
-        deviceName: deviceName,
-        brand: brand,
-        createdAt: createdAt,
-      );
 }

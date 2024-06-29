@@ -15,10 +15,26 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    DevicesAddRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DevicesAddPage(),
+      );
+    },
     DevicesRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const DevicesPage(),
+      );
+    },
+    DevicesUpdateRoute.name: (routeData) {
+      final args = routeData.argsAs<DevicesUpdateRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: DevicesUpdatePage(
+          args.devicesModel,
+          key: args.key,
+        ),
       );
     },
     SplashRoute.name: (routeData) {
@@ -53,6 +69,20 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
+/// [DevicesAddPage]
+class DevicesAddRoute extends PageRouteInfo<void> {
+  const DevicesAddRoute({List<PageRouteInfo>? children})
+      : super(
+          DevicesAddRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DevicesAddRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [DevicesPage]
 class DevicesRoute extends PageRouteInfo<void> {
   const DevicesRoute({List<PageRouteInfo>? children})
@@ -64,6 +94,44 @@ class DevicesRoute extends PageRouteInfo<void> {
   static const String name = 'DevicesRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [DevicesUpdatePage]
+class DevicesUpdateRoute extends PageRouteInfo<DevicesUpdateRouteArgs> {
+  DevicesUpdateRoute({
+    required DevicesModel devicesModel,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          DevicesUpdateRoute.name,
+          args: DevicesUpdateRouteArgs(
+            devicesModel: devicesModel,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'DevicesUpdateRoute';
+
+  static const PageInfo<DevicesUpdateRouteArgs> page =
+      PageInfo<DevicesUpdateRouteArgs>(name);
+}
+
+class DevicesUpdateRouteArgs {
+  const DevicesUpdateRouteArgs({
+    required this.devicesModel,
+    this.key,
+  });
+
+  final DevicesModel devicesModel;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'DevicesUpdateRouteArgs{devicesModel: $devicesModel, key: $key}';
+  }
 }
 
 /// generated route for

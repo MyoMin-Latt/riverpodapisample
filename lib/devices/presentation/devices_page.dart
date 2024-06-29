@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../core/presentation/app_router.dart';
 import '../shared/devices_providers.dart';
 
 @RoutePage()
@@ -44,6 +45,7 @@ class _DevicesPageState extends ConsumerState<DevicesPage> {
       },
     );
     final listState = ref.watch(devicesListNotifierProvider); // ui
+//delete
     ref.listen(
       devicesDeleteNotifierProvider,
       (previous, state) {
@@ -80,14 +82,33 @@ class _DevicesPageState extends ConsumerState<DevicesPage> {
         );
       },
     );
+//add
+    ref.listen(devicesAddNotifierProvider, (previous, state) {
+      print("devicesAddNotifierProvider => $state");
+      state.maybeWhen(
+          orElse: () {},
+          success: (data) {
+            context.router.back();
+            getDevicesList();
+          });
+    });
+    //Update
+    ref.listen(devicesUpdateNotifierProvider, (previous, state) {
+      print("devicesUpdateNotifierProvider => $state");
+      state.maybeWhen(
+          orElse: () {},
+          success: (data) {
+            context.router.back();
+            getDevicesList();
+          });
+    });
 
     return Scaffold(
       appBar: AppBar(
         title: const Text("Devices"),
         actions: [
           IconButton(
-            // onPressed: () => context.router.push(const UserAddRoute()),
-            onPressed: () {},
+            onPressed: () => context.router.push(const DevicesAddRoute()),
             icon: const Icon(
               Icons.add,
             ),
@@ -119,15 +140,27 @@ class _DevicesPageState extends ConsumerState<DevicesPage> {
             itemCount: devicesList.length,
             itemBuilder: (context, index) => Card(
               child: ListTile(
-                subtitle: Text(devicesList[index].deviceName),
+                leading: IconButton(
+                  onPressed: () => context.router.push(
+                      DevicesUpdateRoute(devicesModel: devicesList[index])),
+                  icon: const Icon(Icons.edit),
+                ),
+                title: Text(devicesList[index].deviceName),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(devicesList[index].brand),
+                    Text(devicesList[index].createdAt),
+                  ],
+                ),
                 trailing: IconButton(
                   onPressed: () {
                     // ref
                     //     .read(productDeleteNotifierProvider.notifier)
                     //     .deleteProduct(prodList[index].id);
-                    // ref
-                    //     .read(usersDeleteNotifierProvider.notifier)
-                    //     .deleteUsers(userList[index].id.toString());
+                    ref
+                        .read(devicesDeleteNotifierProvider.notifier)
+                        .deleteDevices(devicesList[index].deviceID);
                   },
                   icon: const Icon(
                     Icons.delete,
@@ -135,7 +168,7 @@ class _DevicesPageState extends ConsumerState<DevicesPage> {
                 ),
                 onTap: () {
                   // context.router.replace(
-                  //   UsersDetailRoute(usersModel: userList[index]),
+                  //   ....DetailRoute(usersModel: userList[index]),
                   // );
                 },
               ),

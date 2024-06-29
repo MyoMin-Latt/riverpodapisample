@@ -126,12 +126,13 @@ class __$$DevicesModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DevicesModelImpl implements _DevicesModel {
+class _$DevicesModelImpl extends _DevicesModel {
   const _$DevicesModelImpl(
       {required this.deviceID,
       required this.deviceName,
       required this.brand,
-      required this.createdAt});
+      required this.createdAt})
+      : super._();
 
   @override
   final String deviceID;
@@ -172,12 +173,13 @@ class _$DevicesModelImpl implements _DevicesModel {
       __$$DevicesModelImplCopyWithImpl<_$DevicesModelImpl>(this, _$identity);
 }
 
-abstract class _DevicesModel implements DevicesModel {
+abstract class _DevicesModel extends DevicesModel {
   const factory _DevicesModel(
       {required final String deviceID,
       required final String deviceName,
       required final String brand,
       required final String createdAt}) = _$DevicesModelImpl;
+  const _DevicesModel._() : super._();
 
   @override
   String get deviceID;

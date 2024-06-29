@@ -2,8 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../all_feat.dart';
-import '../domain/devices_model.dart';
-import '../infrastructure/devices_repository.dart';
+//import '../domain/devices_model.dart';
+//import '../infrastructure/devices_repository.dart';
 part 'devices_delete_notifier.freezed.dart';
 
 @freezed
@@ -21,9 +21,9 @@ class DevicesNotifier extends StateNotifier<DevicesDeleteNotifier> {
   DevicesNotifier(this._repository)
       : super(const DevicesDeleteNotifier.initial());
 
-  Future<void> deleteDevices(String id) async {
+  Future<void> deleteDevices(String devicesID) async {
     state = const DevicesDeleteNotifier.loading();
-    final failureOrSuccess = await _repository.deleteDevices(id);
+    final failureOrSuccess = await _repository.deleteDevices(devicesID);
     state = failureOrSuccess.fold(
       (l) => DevicesDeleteNotifier.error(l),
       (r) => r.when(

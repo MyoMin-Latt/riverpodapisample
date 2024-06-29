@@ -1,10 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpodapisample/all_feat.dart';
-
-import '../application/devices_delete_notifier.dart';
-import '../application/devices_list_notifer.dart';
-import '../infrastructure/devices_remote_service.dart';
-import '../infrastructure/devices_repository.dart';
+import 'package:riverpodapisample/devices/application/devices_add_notifier.dart';
 
 final devicesRemoteServiceProvider = Provider((ref) {
   return DevicesRemoteService(ref.watch(dioProvider));
@@ -22,4 +18,14 @@ final devicesListNotifierProvider =
 final devicesDeleteNotifierProvider =
     StateNotifierProvider<DevicesNotifier, DevicesDeleteNotifier>((ref) {
   return DevicesNotifier(ref.watch(devicesRepositoryProvider));
+});
+
+final devicesAddNotifierProvider =
+    StateNotifierProvider<AddDevicesNotifier, DevicesAddNotifier>((ref) {
+  return AddDevicesNotifier(ref.watch(devicesRepositoryProvider));
+});
+
+final devicesUpdateNotifierProvider =
+    StateNotifierProvider<UpdateDevicesNotifier, DevicesUpdateNotifier>((ref) {
+  return UpdateDevicesNotifier(ref.watch(devicesRepositoryProvider));
 });
