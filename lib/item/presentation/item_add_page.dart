@@ -28,7 +28,7 @@ class _ItemAddPageState extends ConsumerState<ItemAddPage> {
         state.maybeWhen(
             orElse: () {},
             success: (data) {
-              context.router.back();
+              // context.router.back();
             });
       },
     );

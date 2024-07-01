@@ -66,6 +66,28 @@ class _ItemPageState extends ConsumerState<ItemPage> {
         state.maybeWhen(
             orElse: () {},
             success: (data) {
+              //test
+               showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: const Text('Alert '),
+                  content: const Text('Item Add Succefully !'),
+                  actions: <Widget>[
+                    TextButton(
+                      child: const Text('Ok'),
+                      onPressed: () {
+                        //Navigator.of(context).pop();
+                        context.router.back();
+                      },
+                    ),
+                    
+                  ],
+                );
+              },
+            ); 
+              //test
+              print("AddItemSucceful => $data");
               getItemList();
             });
       },
@@ -176,7 +198,39 @@ class _ItemPageState extends ConsumerState<ItemPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.router.push(const ItemAddRoute()),
+        //onPressed: () => context.router.push(const ItemAddRoute()),
+        onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text("Confirm Adding"),
+                              content: const Text(
+                                  "Are you sure you want to add new item?"),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.of(context).pop(false),
+                                  child: const Text("Cancel"),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop(true);
+                                    context.router.push(const ItemAddRoute());
+                                    /* ref
+                                        .read(itemDeleteNotifierProvider.notifier)
+                                        .deleteItem(iList[index].id);
+                                    ref
+                                        .read(itemListNotifierProvider.notifier)
+                                        .getItemList(); */
+                                  },
+                                  child: const Text("Add"),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
         child: const Icon(Icons.add),
       ),
     );

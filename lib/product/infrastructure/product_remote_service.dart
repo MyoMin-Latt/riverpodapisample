@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
 import '../../all_feat.dart';
+import '../feat_product.dart';
 
 class ProductRemoteService {
   final Dio _dio;

@@ -37,6 +37,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    ProductDetailRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProductDetailPage(),
+      );
+    },
     ProductRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -132,6 +138,20 @@ class ItemUpdateRouteArgs {
   String toString() {
     return 'ItemUpdateRouteArgs{item: $item, key: $key}';
   }
+}
+
+/// generated route for
+/// [ProductDetailPage]
+class ProductDetailRoute extends PageRouteInfo<void> {
+  const ProductDetailRoute({List<PageRouteInfo>? children})
+      : super(
+          ProductDetailRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProductDetailRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

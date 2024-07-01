@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 import '../../all_feat.dart';
+import '../feat_product.dart';
 
 class ProductRepository {
   final ProductRemoteService _remoteService;
@@ -15,7 +16,8 @@ class ProductRepository {
         hodStaffs.when(
           noConnection: DomainResult.noInternet,
           result: (entity) => DomainResult.data(
-            entity.map((e) => e.toDomain()).toList(),
+           //entity.map((e) => e.toDomain()).toList(),
+           entity.map((e) => e.toDomain()).cast<ProductModel>().toList(),
           ),
         ),
       );
