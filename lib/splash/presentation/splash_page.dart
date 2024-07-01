@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../core/presentation/app_router.dart';
+import '../../all_feat.dart';
 
 @RoutePage()
 class SplashPage extends ConsumerStatefulWidget {
@@ -20,8 +20,9 @@ class _SplashPageState extends ConsumerState<SplashPage> {
   }
 
   Future<void> gotoHome() async {
-    await Future.delayed(const Duration(seconds: 3));
-    AutoRouter.of(context).replaceAll([const UsersRoute()]);
+    await Future.delayed(const Duration(seconds: 1));
+    AutoRouter.of(context).replaceAll([const ProductsRoute()]);
+    // AutoRouter.of(context).replaceAll([const UsersRoute()]);
     // AutoRouter.of(context).push(const UsersRoute());
   }
 
