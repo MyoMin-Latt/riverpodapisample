@@ -679,8 +679,12 @@ abstract class _MetaModel extends MetaDto {
       throw _privateConstructorUsedError;
 }
 
+DummyProductDto _$DummyProductDtoFromJson(Map<String, dynamic> json) {
+  return _DummyProductDto.fromJson(json);
+}
+
 /// @nodoc
-mixin _$ProductDto {
+mixin _$DummyProductDto {
   @JsonKey(name: 'id', fromJson: intFromJson)
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'title', fromJson: stringFromJson)
@@ -703,7 +707,7 @@ mixin _$ProductDto {
   String get brand => throw _privateConstructorUsedError;
   @JsonKey(name: 'sku', fromJson: stringFromJson)
   String get sku => throw _privateConstructorUsedError;
-  @JsonKey(name: 'weight', fromJson: stringFromJson)
+  @JsonKey(name: 'weight', fromJson: intFromJson)
   int get weight => throw _privateConstructorUsedError;
   @JsonKey(name: 'dimensions')
   DimensionsDto get dimensions => throw _privateConstructorUsedError;
@@ -713,7 +717,7 @@ mixin _$ProductDto {
   String get shippingInformati => throw _privateConstructorUsedError;
   @JsonKey(name: 'availabilityStatus', fromJson: stringFromJson)
   String get availabilityStatu => throw _privateConstructorUsedError;
-  @JsonKey(name: 'reviews', defaultValue: [])
+  @JsonKey(name: 'reviews')
   List<ReviewDto> get reviews => throw _privateConstructorUsedError;
   @JsonKey(name: 'returnPolicy', fromJson: stringFromJson)
   String get returnPolicy => throw _privateConstructorUsedError;
@@ -726,16 +730,17 @@ mixin _$ProductDto {
   @JsonKey(name: 'thumbnail', fromJson: stringFromJson)
   String get thumbnail => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProductDtoCopyWith<ProductDto> get copyWith =>
+  $DummyProductDtoCopyWith<DummyProductDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProductDtoCopyWith<$Res> {
-  factory $ProductDtoCopyWith(
-          ProductDto value, $Res Function(ProductDto) then) =
-      _$ProductDtoCopyWithImpl<$Res, ProductDto>;
+abstract class $DummyProductDtoCopyWith<$Res> {
+  factory $DummyProductDtoCopyWith(
+          DummyProductDto value, $Res Function(DummyProductDto) then) =
+      _$DummyProductDtoCopyWithImpl<$Res, DummyProductDto>;
   @useResult
   $Res call(
       {@JsonKey(name: 'id', fromJson: intFromJson) int id,
@@ -751,7 +756,7 @@ abstract class $ProductDtoCopyWith<$Res> {
       @JsonKey(name: 'tags', defaultValue: []) List<String> tags,
       @JsonKey(name: 'brand', fromJson: stringFromJson) String brand,
       @JsonKey(name: 'sku', fromJson: stringFromJson) String sku,
-      @JsonKey(name: 'weight', fromJson: stringFromJson) int weight,
+      @JsonKey(name: 'weight', fromJson: intFromJson) int weight,
       @JsonKey(name: 'dimensions') DimensionsDto dimensions,
       @JsonKey(name: 'warrantyInformation', fromJson: stringFromJson)
       String warrantyInformati,
@@ -759,7 +764,7 @@ abstract class $ProductDtoCopyWith<$Res> {
       String shippingInformati,
       @JsonKey(name: 'availabilityStatus', fromJson: stringFromJson)
       String availabilityStatu,
-      @JsonKey(name: 'reviews', defaultValue: []) List<ReviewDto> reviews,
+      @JsonKey(name: 'reviews') List<ReviewDto> reviews,
       @JsonKey(name: 'returnPolicy', fromJson: stringFromJson)
       String returnPolicy,
       @JsonKey(name: 'minimumOrderQuantity', fromJson: intFromJson)
@@ -773,9 +778,9 @@ abstract class $ProductDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ProductDtoCopyWithImpl<$Res, $Val extends ProductDto>
-    implements $ProductDtoCopyWith<$Res> {
-  _$ProductDtoCopyWithImpl(this._value, this._then);
+class _$DummyProductDtoCopyWithImpl<$Res, $Val extends DummyProductDto>
+    implements $DummyProductDtoCopyWith<$Res> {
+  _$DummyProductDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -918,11 +923,11 @@ class _$ProductDtoCopyWithImpl<$Res, $Val extends ProductDto>
 }
 
 /// @nodoc
-abstract class _$$ProductDtoImplCopyWith<$Res>
-    implements $ProductDtoCopyWith<$Res> {
-  factory _$$ProductDtoImplCopyWith(
-          _$ProductDtoImpl value, $Res Function(_$ProductDtoImpl) then) =
-      __$$ProductDtoImplCopyWithImpl<$Res>;
+abstract class _$$DummyProductDtoImplCopyWith<$Res>
+    implements $DummyProductDtoCopyWith<$Res> {
+  factory _$$DummyProductDtoImplCopyWith(_$DummyProductDtoImpl value,
+          $Res Function(_$DummyProductDtoImpl) then) =
+      __$$DummyProductDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -939,7 +944,7 @@ abstract class _$$ProductDtoImplCopyWith<$Res>
       @JsonKey(name: 'tags', defaultValue: []) List<String> tags,
       @JsonKey(name: 'brand', fromJson: stringFromJson) String brand,
       @JsonKey(name: 'sku', fromJson: stringFromJson) String sku,
-      @JsonKey(name: 'weight', fromJson: stringFromJson) int weight,
+      @JsonKey(name: 'weight', fromJson: intFromJson) int weight,
       @JsonKey(name: 'dimensions') DimensionsDto dimensions,
       @JsonKey(name: 'warrantyInformation', fromJson: stringFromJson)
       String warrantyInformati,
@@ -947,7 +952,7 @@ abstract class _$$ProductDtoImplCopyWith<$Res>
       String shippingInformati,
       @JsonKey(name: 'availabilityStatus', fromJson: stringFromJson)
       String availabilityStatu,
-      @JsonKey(name: 'reviews', defaultValue: []) List<ReviewDto> reviews,
+      @JsonKey(name: 'reviews') List<ReviewDto> reviews,
       @JsonKey(name: 'returnPolicy', fromJson: stringFromJson)
       String returnPolicy,
       @JsonKey(name: 'minimumOrderQuantity', fromJson: intFromJson)
@@ -963,11 +968,11 @@ abstract class _$$ProductDtoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ProductDtoImplCopyWithImpl<$Res>
-    extends _$ProductDtoCopyWithImpl<$Res, _$ProductDtoImpl>
-    implements _$$ProductDtoImplCopyWith<$Res> {
-  __$$ProductDtoImplCopyWithImpl(
-      _$ProductDtoImpl _value, $Res Function(_$ProductDtoImpl) _then)
+class __$$DummyProductDtoImplCopyWithImpl<$Res>
+    extends _$DummyProductDtoCopyWithImpl<$Res, _$DummyProductDtoImpl>
+    implements _$$DummyProductDtoImplCopyWith<$Res> {
+  __$$DummyProductDtoImplCopyWithImpl(
+      _$DummyProductDtoImpl _value, $Res Function(_$DummyProductDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -996,7 +1001,7 @@ class __$$ProductDtoImplCopyWithImpl<$Res>
     Object? images = null,
     Object? thumbnail = null,
   }) {
-    return _then(_$ProductDtoImpl(
+    return _then(_$DummyProductDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1090,9 +1095,9 @@ class __$$ProductDtoImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$ProductDtoImpl extends _ProductDto {
-  const _$ProductDtoImpl(
+@JsonSerializable()
+class _$DummyProductDtoImpl extends _DummyProductDto {
+  const _$DummyProductDtoImpl(
       {@JsonKey(name: 'id', fromJson: intFromJson) required this.id,
       @JsonKey(name: 'title', fromJson: stringFromJson) required this.title,
       @JsonKey(name: 'description', fromJson: stringFromJson)
@@ -1107,7 +1112,7 @@ class _$ProductDtoImpl extends _ProductDto {
       @JsonKey(name: 'tags', defaultValue: []) required final List<String> tags,
       @JsonKey(name: 'brand', fromJson: stringFromJson) required this.brand,
       @JsonKey(name: 'sku', fromJson: stringFromJson) required this.sku,
-      @JsonKey(name: 'weight', fromJson: stringFromJson) required this.weight,
+      @JsonKey(name: 'weight', fromJson: intFromJson) required this.weight,
       @JsonKey(name: 'dimensions') required this.dimensions,
       @JsonKey(name: 'warrantyInformation', fromJson: stringFromJson)
       required this.warrantyInformati,
@@ -1115,8 +1120,7 @@ class _$ProductDtoImpl extends _ProductDto {
       required this.shippingInformati,
       @JsonKey(name: 'availabilityStatus', fromJson: stringFromJson)
       required this.availabilityStatu,
-      @JsonKey(name: 'reviews', defaultValue: [])
-      required final List<ReviewDto> reviews,
+      @JsonKey(name: 'reviews') required final List<ReviewDto> reviews,
       @JsonKey(name: 'returnPolicy', fromJson: stringFromJson)
       required this.returnPolicy,
       @JsonKey(name: 'minimumOrderQuantity', fromJson: intFromJson)
@@ -1128,6 +1132,9 @@ class _$ProductDtoImpl extends _ProductDto {
       : _tags = tags,
         _reviews = reviews,
         super._();
+
+  factory _$DummyProductDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DummyProductDtoImplFromJson(json);
 
   @override
   @JsonKey(name: 'id', fromJson: intFromJson)
@@ -1169,7 +1176,7 @@ class _$ProductDtoImpl extends _ProductDto {
   @JsonKey(name: 'sku', fromJson: stringFromJson)
   final String sku;
   @override
-  @JsonKey(name: 'weight', fromJson: stringFromJson)
+  @JsonKey(name: 'weight', fromJson: intFromJson)
   final int weight;
   @override
   @JsonKey(name: 'dimensions')
@@ -1185,7 +1192,7 @@ class _$ProductDtoImpl extends _ProductDto {
   final String availabilityStatu;
   final List<ReviewDto> _reviews;
   @override
-  @JsonKey(name: 'reviews', defaultValue: [])
+  @JsonKey(name: 'reviews')
   List<ReviewDto> get reviews {
     if (_reviews is EqualUnmodifiableListView) return _reviews;
     // ignore: implicit_dynamic_type
@@ -1210,14 +1217,14 @@ class _$ProductDtoImpl extends _ProductDto {
 
   @override
   String toString() {
-    return 'ProductDto(id: $id, title: $title, description: $description, category: $category, price: $price, discountPercentag: $discountPercentag, rating: $rating, stock: $stock, tags: $tags, brand: $brand, sku: $sku, weight: $weight, dimensions: $dimensions, warrantyInformati: $warrantyInformati, shippingInformati: $shippingInformati, availabilityStatu: $availabilityStatu, reviews: $reviews, returnPolicy: $returnPolicy, minimumOrderQuant: $minimumOrderQuant, meta: $meta, images: $images, thumbnail: $thumbnail)';
+    return 'DummyProductDto(id: $id, title: $title, description: $description, category: $category, price: $price, discountPercentag: $discountPercentag, rating: $rating, stock: $stock, tags: $tags, brand: $brand, sku: $sku, weight: $weight, dimensions: $dimensions, warrantyInformati: $warrantyInformati, shippingInformati: $shippingInformati, availabilityStatu: $availabilityStatu, reviews: $reviews, returnPolicy: $returnPolicy, minimumOrderQuant: $minimumOrderQuant, meta: $meta, images: $images, thumbnail: $thumbnail)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProductDtoImpl &&
+            other is _$DummyProductDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
@@ -1252,6 +1259,7 @@ class _$ProductDtoImpl extends _ProductDto {
                 other.thumbnail == thumbnail));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -1282,12 +1290,20 @@ class _$ProductDtoImpl extends _ProductDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProductDtoImplCopyWith<_$ProductDtoImpl> get copyWith =>
-      __$$ProductDtoImplCopyWithImpl<_$ProductDtoImpl>(this, _$identity);
+  _$$DummyProductDtoImplCopyWith<_$DummyProductDtoImpl> get copyWith =>
+      __$$DummyProductDtoImplCopyWithImpl<_$DummyProductDtoImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$DummyProductDtoImplToJson(
+      this,
+    );
+  }
 }
 
-abstract class _ProductDto extends ProductDto {
-  const factory _ProductDto(
+abstract class _DummyProductDto extends DummyProductDto {
+  const factory _DummyProductDto(
       {@JsonKey(name: 'id', fromJson: intFromJson) required final int id,
       @JsonKey(name: 'title', fromJson: stringFromJson)
       required final String title,
@@ -1306,8 +1322,7 @@ abstract class _ProductDto extends ProductDto {
       @JsonKey(name: 'brand', fromJson: stringFromJson)
       required final String brand,
       @JsonKey(name: 'sku', fromJson: stringFromJson) required final String sku,
-      @JsonKey(name: 'weight', fromJson: stringFromJson)
-      required final int weight,
+      @JsonKey(name: 'weight', fromJson: intFromJson) required final int weight,
       @JsonKey(name: 'dimensions') required final DimensionsDto dimensions,
       @JsonKey(name: 'warrantyInformation', fromJson: stringFromJson)
       required final String warrantyInformati,
@@ -1315,8 +1330,7 @@ abstract class _ProductDto extends ProductDto {
       required final String shippingInformati,
       @JsonKey(name: 'availabilityStatus', fromJson: stringFromJson)
       required final String availabilityStatu,
-      @JsonKey(name: 'reviews', defaultValue: [])
-      required final List<ReviewDto> reviews,
+      @JsonKey(name: 'reviews') required final List<ReviewDto> reviews,
       @JsonKey(name: 'returnPolicy', fromJson: stringFromJson)
       required final String returnPolicy,
       @JsonKey(name: 'minimumOrderQuantity', fromJson: intFromJson)
@@ -1325,8 +1339,11 @@ abstract class _ProductDto extends ProductDto {
       @JsonKey(name: 'images', fromJson: stringFromJson)
       required final String images,
       @JsonKey(name: 'thumbnail', fromJson: stringFromJson)
-      required final String thumbnail}) = _$ProductDtoImpl;
-  const _ProductDto._() : super._();
+      required final String thumbnail}) = _$DummyProductDtoImpl;
+  const _DummyProductDto._() : super._();
+
+  factory _DummyProductDto.fromJson(Map<String, dynamic> json) =
+      _$DummyProductDtoImpl.fromJson;
 
   @override
   @JsonKey(name: 'id', fromJson: intFromJson)
@@ -1362,7 +1379,7 @@ abstract class _ProductDto extends ProductDto {
   @JsonKey(name: 'sku', fromJson: stringFromJson)
   String get sku;
   @override
-  @JsonKey(name: 'weight', fromJson: stringFromJson)
+  @JsonKey(name: 'weight', fromJson: intFromJson)
   int get weight;
   @override
   @JsonKey(name: 'dimensions')
@@ -1377,7 +1394,7 @@ abstract class _ProductDto extends ProductDto {
   @JsonKey(name: 'availabilityStatus', fromJson: stringFromJson)
   String get availabilityStatu;
   @override
-  @JsonKey(name: 'reviews', defaultValue: [])
+  @JsonKey(name: 'reviews')
   List<ReviewDto> get reviews;
   @override
   @JsonKey(name: 'returnPolicy', fromJson: stringFromJson)
@@ -1396,6 +1413,209 @@ abstract class _ProductDto extends ProductDto {
   String get thumbnail;
   @override
   @JsonKey(ignore: true)
-  _$$ProductDtoImplCopyWith<_$ProductDtoImpl> get copyWith =>
+  _$$DummyProductDtoImplCopyWith<_$DummyProductDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ProductDetailDto _$ProductDetailDtoFromJson(Map<String, dynamic> json) {
+  return _ProductDetailDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ProductDetailDto {
+  List<DummyProductDto> get products => throw _privateConstructorUsedError;
+  int get total => throw _privateConstructorUsedError;
+  int get skip => throw _privateConstructorUsedError;
+  int get limit => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ProductDetailDtoCopyWith<ProductDetailDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ProductDetailDtoCopyWith<$Res> {
+  factory $ProductDetailDtoCopyWith(
+          ProductDetailDto value, $Res Function(ProductDetailDto) then) =
+      _$ProductDetailDtoCopyWithImpl<$Res, ProductDetailDto>;
+  @useResult
+  $Res call({List<DummyProductDto> products, int total, int skip, int limit});
+}
+
+/// @nodoc
+class _$ProductDetailDtoCopyWithImpl<$Res, $Val extends ProductDetailDto>
+    implements $ProductDetailDtoCopyWith<$Res> {
+  _$ProductDetailDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? products = null,
+    Object? total = null,
+    Object? skip = null,
+    Object? limit = null,
+  }) {
+    return _then(_value.copyWith(
+      products: null == products
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<DummyProductDto>,
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as int,
+      skip: null == skip
+          ? _value.skip
+          : skip // ignore: cast_nullable_to_non_nullable
+              as int,
+      limit: null == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ProductDetailDtoImplCopyWith<$Res>
+    implements $ProductDetailDtoCopyWith<$Res> {
+  factory _$$ProductDetailDtoImplCopyWith(_$ProductDetailDtoImpl value,
+          $Res Function(_$ProductDetailDtoImpl) then) =
+      __$$ProductDetailDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<DummyProductDto> products, int total, int skip, int limit});
+}
+
+/// @nodoc
+class __$$ProductDetailDtoImplCopyWithImpl<$Res>
+    extends _$ProductDetailDtoCopyWithImpl<$Res, _$ProductDetailDtoImpl>
+    implements _$$ProductDetailDtoImplCopyWith<$Res> {
+  __$$ProductDetailDtoImplCopyWithImpl(_$ProductDetailDtoImpl _value,
+      $Res Function(_$ProductDetailDtoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? products = null,
+    Object? total = null,
+    Object? skip = null,
+    Object? limit = null,
+  }) {
+    return _then(_$ProductDetailDtoImpl(
+      products: null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<DummyProductDto>,
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as int,
+      skip: null == skip
+          ? _value.skip
+          : skip // ignore: cast_nullable_to_non_nullable
+              as int,
+      limit: null == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ProductDetailDtoImpl extends _ProductDetailDto {
+  const _$ProductDetailDtoImpl(
+      {required final List<DummyProductDto> products,
+      required this.total,
+      required this.skip,
+      required this.limit})
+      : _products = products,
+        super._();
+
+  factory _$ProductDetailDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProductDetailDtoImplFromJson(json);
+
+  final List<DummyProductDto> _products;
+  @override
+  List<DummyProductDto> get products {
+    if (_products is EqualUnmodifiableListView) return _products;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_products);
+  }
+
+  @override
+  final int total;
+  @override
+  final int skip;
+  @override
+  final int limit;
+
+  @override
+  String toString() {
+    return 'ProductDetailDto(products: $products, total: $total, skip: $skip, limit: $limit)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProductDetailDtoImpl &&
+            const DeepCollectionEquality().equals(other._products, _products) &&
+            (identical(other.total, total) || other.total == total) &&
+            (identical(other.skip, skip) || other.skip == skip) &&
+            (identical(other.limit, limit) || other.limit == limit));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_products), total, skip, limit);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProductDetailDtoImplCopyWith<_$ProductDetailDtoImpl> get copyWith =>
+      __$$ProductDetailDtoImplCopyWithImpl<_$ProductDetailDtoImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ProductDetailDtoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ProductDetailDto extends ProductDetailDto {
+  const factory _ProductDetailDto(
+      {required final List<DummyProductDto> products,
+      required final int total,
+      required final int skip,
+      required final int limit}) = _$ProductDetailDtoImpl;
+  const _ProductDetailDto._() : super._();
+
+  factory _ProductDetailDto.fromJson(Map<String, dynamic> json) =
+      _$ProductDetailDtoImpl.fromJson;
+
+  @override
+  List<DummyProductDto> get products;
+  @override
+  int get total;
+  @override
+  int get skip;
+  @override
+  int get limit;
+  @override
+  @JsonKey(ignore: true)
+  _$$ProductDetailDtoImplCopyWith<_$ProductDetailDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

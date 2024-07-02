@@ -18,6 +18,7 @@ class DimensionsDto with _$DimensionsDto {
 
   factory DimensionsDto.fromJson(Map<String, dynamic> json) =>
       _$DimensionsDtoFromJson(json);
+
   DimensionsModel get domain => DimensionsModel(
         width: width,
         height: height,
@@ -72,9 +73,9 @@ class MetaDto with _$MetaDto {
 }
 
 @freezed
-class ProductDto with _$ProductDto {
-  const ProductDto._();
-  const factory ProductDto({
+class DummyProductDto with _$DummyProductDto {
+  const DummyProductDto._();
+  const factory DummyProductDto({
     @JsonKey(name: 'id', fromJson: intFromJson) required int id,
     @JsonKey(name: 'title', fromJson: stringFromJson) required String title,
     @JsonKey(name: 'description', fromJson: stringFromJson)
@@ -89,7 +90,7 @@ class ProductDto with _$ProductDto {
     @JsonKey(name: 'tags', defaultValue: []) required List<String> tags,
     @JsonKey(name: 'brand', fromJson: stringFromJson) required String brand,
     @JsonKey(name: 'sku', fromJson: stringFromJson) required String sku,
-    @JsonKey(name: 'weight', fromJson: stringFromJson) required int weight,
+    @JsonKey(name: 'weight', fromJson: intFromJson) required int weight,
     @JsonKey(name: 'dimensions') required DimensionsDto dimensions,
     @JsonKey(name: 'warrantyInformation', fromJson: stringFromJson)
     required String warrantyInformati,
@@ -97,20 +98,61 @@ class ProductDto with _$ProductDto {
     required String shippingInformati,
     @JsonKey(name: 'availabilityStatus', fromJson: stringFromJson)
     required String availabilityStatu,
-    @JsonKey(name: 'reviews', defaultValue: [])
-    required List<ReviewDto> reviews,
+    @JsonKey(name: 'reviews') required List<ReviewDto> reviews,
     @JsonKey(name: 'returnPolicy', fromJson: stringFromJson)
     required String returnPolicy,
     @JsonKey(name: 'minimumOrderQuantity', fromJson: intFromJson)
     required int minimumOrderQuant,
-    @JsonKey(
-      name: 'meta',
-    )
-    required MetaDto meta,
+    @JsonKey(name: 'meta') required MetaDto meta,
     @JsonKey(name: 'images', fromJson: stringFromJson) required String images,
     @JsonKey(name: 'thumbnail', fromJson: stringFromJson)
     required String thumbnail,
-  }) = _ProductDto;
+  }) = _DummyProductDto;
+
+  factory DummyProductDto.fromJson(Map<String, dynamic> json) =>
+      _$DummyProductDtoFromJson(json);
+  DummyProductModel get domain => DummyProductModel(
+      id: id,
+      title: title,
+      description: description,
+      category: category,
+      price: price,
+      discountPercentag: discountPercentag,
+      rating: rating,
+      stock: stock,
+      tags: tags,
+      brand: brand,
+      sku: sku,
+      weight: weight,
+      dimensions: dimensions.domain,
+      warrantyInformati: warrantyInformati,
+      shippingInformati: shippingInformati,
+      availabilityStatu: availabilityStatu,
+      reviews: reviews.map((e) => e.domain).toList(),
+      returnPolicy: returnPolicy,
+      minimumOrderQuant: minimumOrderQuant,
+      meta: meta.domain,
+      images: images,
+      thumbnail: thumbnail);
+}
+
+@freezed
+class ProductDetailDto with _$ProductDetailDto {
+  const ProductDetailDto._();
+  const factory ProductDetailDto({
+    required List<DummyProductDto> products,
+    required int total,
+    required int skip,
+    required int limit,
+  }) = _ProductDetailDto;
+  factory ProductDetailDto.fromJson(Map<String, dynamic> json) =>
+      _$ProductDetailDtoFromJson(json);
+  ProductDetailModel get domain => ProductDetailModel(
+        products: products.map((e) => e.domain).toList(),
+        total: total,
+        skip: skip,
+        limit: limit,
+      );
 }
 
 // id

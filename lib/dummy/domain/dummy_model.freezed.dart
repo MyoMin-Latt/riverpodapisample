@@ -550,7 +550,7 @@ abstract class _MetaModel implements MetaModel {
 }
 
 /// @nodoc
-mixin _$ProductModel {
+mixin _$DummyProductModel {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -575,15 +575,15 @@ mixin _$ProductModel {
   String get thumbnail => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ProductModelCopyWith<ProductModel> get copyWith =>
+  $DummyProductModelCopyWith<DummyProductModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProductModelCopyWith<$Res> {
-  factory $ProductModelCopyWith(
-          ProductModel value, $Res Function(ProductModel) then) =
-      _$ProductModelCopyWithImpl<$Res, ProductModel>;
+abstract class $DummyProductModelCopyWith<$Res> {
+  factory $DummyProductModelCopyWith(
+          DummyProductModel value, $Res Function(DummyProductModel) then) =
+      _$DummyProductModelCopyWithImpl<$Res, DummyProductModel>;
   @useResult
   $Res call(
       {int id,
@@ -614,9 +614,9 @@ abstract class $ProductModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
-    implements $ProductModelCopyWith<$Res> {
-  _$ProductModelCopyWithImpl(this._value, this._then);
+class _$DummyProductModelCopyWithImpl<$Res, $Val extends DummyProductModel>
+    implements $DummyProductModelCopyWith<$Res> {
+  _$DummyProductModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -759,11 +759,11 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
 }
 
 /// @nodoc
-abstract class _$$ProductModelImplCopyWith<$Res>
-    implements $ProductModelCopyWith<$Res> {
-  factory _$$ProductModelImplCopyWith(
-          _$ProductModelImpl value, $Res Function(_$ProductModelImpl) then) =
-      __$$ProductModelImplCopyWithImpl<$Res>;
+abstract class _$$DummyProductModelImplCopyWith<$Res>
+    implements $DummyProductModelCopyWith<$Res> {
+  factory _$$DummyProductModelImplCopyWith(_$DummyProductModelImpl value,
+          $Res Function(_$DummyProductModelImpl) then) =
+      __$$DummyProductModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -797,11 +797,11 @@ abstract class _$$ProductModelImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ProductModelImplCopyWithImpl<$Res>
-    extends _$ProductModelCopyWithImpl<$Res, _$ProductModelImpl>
-    implements _$$ProductModelImplCopyWith<$Res> {
-  __$$ProductModelImplCopyWithImpl(
-      _$ProductModelImpl _value, $Res Function(_$ProductModelImpl) _then)
+class __$$DummyProductModelImplCopyWithImpl<$Res>
+    extends _$DummyProductModelCopyWithImpl<$Res, _$DummyProductModelImpl>
+    implements _$$DummyProductModelImplCopyWith<$Res> {
+  __$$DummyProductModelImplCopyWithImpl(_$DummyProductModelImpl _value,
+      $Res Function(_$DummyProductModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -830,7 +830,7 @@ class __$$ProductModelImplCopyWithImpl<$Res>
     Object? images = null,
     Object? thumbnail = null,
   }) {
-    return _then(_$ProductModelImpl(
+    return _then(_$DummyProductModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -925,8 +925,8 @@ class __$$ProductModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProductModelImpl implements _ProductModel {
-  const _$ProductModelImpl(
+class _$DummyProductModelImpl implements _DummyProductModel {
+  const _$DummyProductModelImpl(
       {required this.id,
       required this.title,
       required this.description,
@@ -1011,14 +1011,14 @@ class _$ProductModelImpl implements _ProductModel {
 
   @override
   String toString() {
-    return 'ProductModel(id: $id, title: $title, description: $description, category: $category, price: $price, discountPercentag: $discountPercentag, rating: $rating, stock: $stock, tags: $tags, brand: $brand, sku: $sku, weight: $weight, dimensions: $dimensions, warrantyInformati: $warrantyInformati, shippingInformati: $shippingInformati, availabilityStatu: $availabilityStatu, reviews: $reviews, returnPolicy: $returnPolicy, minimumOrderQuant: $minimumOrderQuant, meta: $meta, images: $images, thumbnail: $thumbnail)';
+    return 'DummyProductModel(id: $id, title: $title, description: $description, category: $category, price: $price, discountPercentag: $discountPercentag, rating: $rating, stock: $stock, tags: $tags, brand: $brand, sku: $sku, weight: $weight, dimensions: $dimensions, warrantyInformati: $warrantyInformati, shippingInformati: $shippingInformati, availabilityStatu: $availabilityStatu, reviews: $reviews, returnPolicy: $returnPolicy, minimumOrderQuant: $minimumOrderQuant, meta: $meta, images: $images, thumbnail: $thumbnail)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProductModelImpl &&
+            other is _$DummyProductModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
@@ -1083,12 +1083,13 @@ class _$ProductModelImpl implements _ProductModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProductModelImplCopyWith<_$ProductModelImpl> get copyWith =>
-      __$$ProductModelImplCopyWithImpl<_$ProductModelImpl>(this, _$identity);
+  _$$DummyProductModelImplCopyWith<_$DummyProductModelImpl> get copyWith =>
+      __$$DummyProductModelImplCopyWithImpl<_$DummyProductModelImpl>(
+          this, _$identity);
 }
 
-abstract class _ProductModel implements ProductModel {
-  const factory _ProductModel(
+abstract class _DummyProductModel implements DummyProductModel {
+  const factory _DummyProductModel(
       {required final int id,
       required final String title,
       required final String description,
@@ -1110,7 +1111,7 @@ abstract class _ProductModel implements ProductModel {
       required final int minimumOrderQuant,
       required final MetaModel meta,
       required final String images,
-      required final String thumbnail}) = _$ProductModelImpl;
+      required final String thumbnail}) = _$DummyProductModelImpl;
 
   @override
   int get id;
@@ -1158,6 +1159,188 @@ abstract class _ProductModel implements ProductModel {
   String get thumbnail;
   @override
   @JsonKey(ignore: true)
-  _$$ProductModelImplCopyWith<_$ProductModelImpl> get copyWith =>
+  _$$DummyProductModelImplCopyWith<_$DummyProductModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$ProductDetailModel {
+  List<DummyProductModel> get products => throw _privateConstructorUsedError;
+  int get total => throw _privateConstructorUsedError;
+  int get skip => throw _privateConstructorUsedError;
+  int get limit => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ProductDetailModelCopyWith<ProductDetailModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ProductDetailModelCopyWith<$Res> {
+  factory $ProductDetailModelCopyWith(
+          ProductDetailModel value, $Res Function(ProductDetailModel) then) =
+      _$ProductDetailModelCopyWithImpl<$Res, ProductDetailModel>;
+  @useResult
+  $Res call({List<DummyProductModel> products, int total, int skip, int limit});
+}
+
+/// @nodoc
+class _$ProductDetailModelCopyWithImpl<$Res, $Val extends ProductDetailModel>
+    implements $ProductDetailModelCopyWith<$Res> {
+  _$ProductDetailModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? products = null,
+    Object? total = null,
+    Object? skip = null,
+    Object? limit = null,
+  }) {
+    return _then(_value.copyWith(
+      products: null == products
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<DummyProductModel>,
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as int,
+      skip: null == skip
+          ? _value.skip
+          : skip // ignore: cast_nullable_to_non_nullable
+              as int,
+      limit: null == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ProductDetailModelImplCopyWith<$Res>
+    implements $ProductDetailModelCopyWith<$Res> {
+  factory _$$ProductDetailModelImplCopyWith(_$ProductDetailModelImpl value,
+          $Res Function(_$ProductDetailModelImpl) then) =
+      __$$ProductDetailModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<DummyProductModel> products, int total, int skip, int limit});
+}
+
+/// @nodoc
+class __$$ProductDetailModelImplCopyWithImpl<$Res>
+    extends _$ProductDetailModelCopyWithImpl<$Res, _$ProductDetailModelImpl>
+    implements _$$ProductDetailModelImplCopyWith<$Res> {
+  __$$ProductDetailModelImplCopyWithImpl(_$ProductDetailModelImpl _value,
+      $Res Function(_$ProductDetailModelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? products = null,
+    Object? total = null,
+    Object? skip = null,
+    Object? limit = null,
+  }) {
+    return _then(_$ProductDetailModelImpl(
+      products: null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<DummyProductModel>,
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as int,
+      skip: null == skip
+          ? _value.skip
+          : skip // ignore: cast_nullable_to_non_nullable
+              as int,
+      limit: null == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ProductDetailModelImpl implements _ProductDetailModel {
+  const _$ProductDetailModelImpl(
+      {required final List<DummyProductModel> products,
+      required this.total,
+      required this.skip,
+      required this.limit})
+      : _products = products;
+
+  final List<DummyProductModel> _products;
+  @override
+  List<DummyProductModel> get products {
+    if (_products is EqualUnmodifiableListView) return _products;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_products);
+  }
+
+  @override
+  final int total;
+  @override
+  final int skip;
+  @override
+  final int limit;
+
+  @override
+  String toString() {
+    return 'ProductDetailModel(products: $products, total: $total, skip: $skip, limit: $limit)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProductDetailModelImpl &&
+            const DeepCollectionEquality().equals(other._products, _products) &&
+            (identical(other.total, total) || other.total == total) &&
+            (identical(other.skip, skip) || other.skip == skip) &&
+            (identical(other.limit, limit) || other.limit == limit));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_products), total, skip, limit);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProductDetailModelImplCopyWith<_$ProductDetailModelImpl> get copyWith =>
+      __$$ProductDetailModelImplCopyWithImpl<_$ProductDetailModelImpl>(
+          this, _$identity);
+}
+
+abstract class _ProductDetailModel implements ProductDetailModel {
+  const factory _ProductDetailModel(
+      {required final List<DummyProductModel> products,
+      required final int total,
+      required final int skip,
+      required final int limit}) = _$ProductDetailModelImpl;
+
+  @override
+  List<DummyProductModel> get products;
+  @override
+  int get total;
+  @override
+  int get skip;
+  @override
+  int get limit;
+  @override
+  @JsonKey(ignore: true)
+  _$$ProductDetailModelImplCopyWith<_$ProductDetailModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

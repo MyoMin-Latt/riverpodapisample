@@ -32,8 +32,8 @@ class MetaModel with _$MetaModel {
 }
 
 @freezed
-class ProductModel with _$ProductModel {
-  const factory ProductModel({
+class DummyProductModel with _$DummyProductModel {
+  const factory DummyProductModel({
     required int id,
     required String title,
     required String description,
@@ -56,7 +56,17 @@ class ProductModel with _$ProductModel {
     required MetaModel meta,
     required String images,
     required String thumbnail,
-  }) = _ProductModel;
+  }) = _DummyProductModel;
+}
+
+@freezed
+class ProductDetailModel with _$ProductDetailModel{
+  const factory ProductDetailModel({
+required List<DummyProductModel> products,
+required int total,
+required int skip,
+required int limit,
+  }) = _ProductDetailModel;
 }
 
 // id
@@ -99,3 +109,8 @@ class ProductModel with _$ProductModel {
 // width
 // height
 // depth
+
+// products
+// total
+// skip
+// limit
