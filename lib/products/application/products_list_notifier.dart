@@ -26,8 +26,8 @@ class ProductsListNotifier extends StateNotifier<ProductsListState> {
     // print('getAllProductsList => $getAllProductsList()');
     state = const ProductsListState.loading();
     final failureOrSuccess = await _repository.getAllProductsList();
-    print("************* => $getAllProductsList()");
-    print('failureOrSuccess ************* => $failureOrSuccess');
+    // print("************* => $getAllProductsList()");
+    // print('failureOrSuccess ************* => $failureOrSuccess');
     state = failureOrSuccess.fold(
       (l) => ProductsListState.error(l),
       (r) => r.when(
