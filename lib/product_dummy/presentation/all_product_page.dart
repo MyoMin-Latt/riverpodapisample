@@ -119,6 +119,18 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                   },
                 ),
               ),
+              SizedBox(height: 10),
+               Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text('Total: ${pList.total}', style: TextStyle(fontSize: 16)),
+                    Text('Skip: ${pList.skip}', style: TextStyle(fontSize: 16)),
+                    Text('Limit: ${pList.limit}', style: TextStyle(fontSize: 16)),
+                  ],
+                ),
+              ),
             ],
           );
         },
