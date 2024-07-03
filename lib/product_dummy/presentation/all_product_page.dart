@@ -55,19 +55,30 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
         initial: () => const SizedBox(),
         loading: () => const Center(child: CircularProgressIndicator()),
         empty: () => const Center(child: Text("Empty Data")),
-        noInternet: () => const Center(
+        noInternet: () => Center(
           child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-             Icon(
-                Icons.wifi_off,
-                size: 50,
-                color: Colors.red,
-              ),
-              SizedBox(height: 20),
+            Icon(
+              Icons.wifi_off,
+              size: 50,
+              color: Colors.red,
+            ),
+            SizedBox(height: 20),
             Text("No internet connection. Please check your settings."),
             SizedBox(height: 20),
-            
+            ElevatedButton(
+              onPressed: () async {
+                await _refresh();
+                final newState = ref.read(productListNotifierProvider);
+                newState.whenOrNull(
+                  success: (data) {
+                    setState(() {});
+                  },
+                );
+              },
+              child: Text("Refresh"),
+            ),
           ],
         ),
         ),
