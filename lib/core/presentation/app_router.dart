@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import '../../all_feat.dart';
 import '../../item/presentation/item_update_page.dart';
-import '../../product_dummy/presentation/productdetail_page.dart';
+import '../../product_dummy/presentation/all_product_page.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpodapisample/product_dummy/presentation/each_product_detail_page.dart';
 import 'package:riverpodapisample/product_dummy/shared/product_providers.dart';
 
 @RoutePage()
@@ -54,7 +55,6 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
         success: (pList) {
           return Column(
             children: [
-              // First part: Display total, skip, and limit in a row
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -67,28 +67,52 @@ class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
                 ),
               ),
               SizedBox(height: 10),
-              // Second part: Display the list of ProductModel objects
               Expanded(
                 child: ListView.builder(
                   itemCount: pList.product_model.length,
                   itemBuilder: (context, index) {
                     final product = pList.product_model[index];
-                    return Card(
-                      margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(product.title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                            SizedBox(height: 8),
-                            Text('Brand: ${product.brand}', style: TextStyle(fontSize: 16)),
-                            Text('Category: ${product.category}', style: TextStyle(fontSize: 16)),
-                            Text('Price: \$${product.price}', style: TextStyle(fontSize: 16)),
-                            Text('Rating: ${product.rating}', style: TextStyle(fontSize: 16)),
-                            SizedBox(height: 8),
-                            Text('Description: ${product.description}', style: TextStyle(fontSize: 14)),
-                          ],
+                    return GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EachProductDetailPage(product: product),
+                        ),
+                      ),
+                      child: Card(
+                        margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Row(
+                            children: [
+                              Image.network(
+                                product.thumbnail,
+                                width: 100,
+                                height: 100,
+                                fit: BoxFit.cover,
+                              ),
+                              SizedBox(width: 16),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(product.title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                                    SizedBox(height: 8),
+                                    Text('Category: ${product.category}', style: TextStyle(fontSize: 16)),
+                                    Text('Brand: ${product.brand}', style: TextStyle(fontSize: 16)),
+                                    Text('Price: \$${product.price}', style: TextStyle(fontSize: 16)),
+                                    SizedBox(height: 8),
+                                    Text(
+                                      'Description: ${product.description}',
+                                      style: TextStyle(fontSize: 14),
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );
