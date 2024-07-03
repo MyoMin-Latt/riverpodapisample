@@ -5,17 +5,18 @@ class AppBarProductPage extends StatelessWidget {
   final int skip;
   final int limit;
 
-  const AppBarProductPage(
-      {super.key,
-      required this.total,
-      required this.skip,
-      required this.limit});
+  const AppBarProductPage({
+    super.key,
+    required this.total,
+    required this.skip,
+    required this.limit,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        vertical: 30,
+        vertical: 10,
         horizontal: 30,
       ),
       child: Card(
@@ -24,7 +25,7 @@ class AppBarProductPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             SizedBox(
-              height: 150,
+              height: 50,
               child: Center(
                 child: Text(
                   total.toString(),
@@ -37,7 +38,7 @@ class AppBarProductPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 150,
+              height: 50,
               child: Center(
                 child: Text(
                   skip.toString(),
@@ -50,12 +51,15 @@ class AppBarProductPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 150,
+              height: 50,
               child: Center(
                 child: Text(
                   limit.toString(),
                   textAlign: TextAlign.right,
-                  style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
+                  style: const TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
             ),

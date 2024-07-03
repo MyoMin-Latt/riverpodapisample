@@ -6,18 +6,6 @@ import '../fead_products.dart';
 part 'products_dto.freezed.dart';
 part 'products_dto.g.dart';
 
-// @freezed
-// class TagsDto with _$TagsDto {
-//   const TagsDto._();
-//   const factory TagsDto({
-//     @JsonKey(name: 'tags') required List<String> tags,
-//   }) = _TagsDto;
-//   factory TagsDto.fromJson(Map<String, dynamic> json) =>
-//       _$TagsDtoFromJson(json);
-//   // get method
-//   TagsModel get domain => const TagsModel(tags: []);
-// }
-
 @freezed
 class DimensionsDto with _$DimensionsDto {
   const DimensionsDto._();
@@ -56,17 +44,6 @@ class ReviewsDto with _$ReviewsDto {
       );
 }
 
-// @freezed
-// class ReviewsListDto with _$ReviewsListDto {
-//   const ReviewsListDto._();
-//   const factory ReviewsListDto({
-//     @JsonKey(name: 'reviews') required List<ReviewsDto> reviews,
-//   }) = _ReviewsListDto;
-//   factory ReviewsListDto.fromJson(Map<String, dynamic> json) =>
-//       _$ReviewsListDtoFromJson(json);
-//   ReviewsListModel get domain => const ReviewsListModel(reviews: []);
-// }
-
 @freezed
 class MetaDto with _$MetaDto {
   const MetaDto._();
@@ -85,17 +62,6 @@ class MetaDto with _$MetaDto {
         qrCode: qrCode,
       );
 }
-
-// @freezed
-// class ImagesDto with _$ImagesDto {
-//   const ImagesDto._();
-//   const factory ImagesDto({
-//     @JsonKey(name: 'images') required List<String> images,
-//   }) = _ImagesDto;
-//   factory ImagesDto.fromJson(Map<String, dynamic> json) =>
-//       _$ImagesDtoFromJson(json);
-//   ImagesModel get domain => const ImagesModel(images: []);
-// }
 
 @freezed
 class ProductsDto with _$ProductsDto {
