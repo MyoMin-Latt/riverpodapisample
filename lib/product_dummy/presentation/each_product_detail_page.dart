@@ -53,20 +53,7 @@ class EachProductDetailPage extends StatelessWidget {
                     _buildInfoRow('Height', '${product.dimensions.height} cm'),
                     _buildInfoRow('Depth', '${product.dimensions.depth} cm'),
                   ]),
-                  _buildCard([
-                    Text('Reviews', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                    ...product.reviews.map((review) => Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Rating: ${review.rating}', style: TextStyle(fontSize: 16)),
-                            Text('Comment: ${review.comment}', style: TextStyle(fontSize: 16)),
-                            Text('Reviewer: ${review.reviewerName}', style: TextStyle(fontSize: 16)),
-                            Text('Email: ${review.reviewerEmail}', style: TextStyle(fontSize: 16)),
-                            Text('Date: ${review.date}', style: TextStyle(fontSize: 16)),
-                            Divider(),
-                          ],
-                        )),
-                  ]),
+                  _buildReviews(),
                   _buildCard([
                     _buildInfoRow('Warranty Information', product.warrantyInformation),
                     _buildInfoRow('Shipping Information', product.shippingInformation),
@@ -104,6 +91,38 @@ class EachProductDetailPage extends StatelessWidget {
           Text(value),
         ],
       ),
+    );
+  }
+
+  Widget _buildReviews() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Reviews', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        SizedBox(height: 8),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: product.reviews.map((review) {
+              return Container(
+                width: 200, // Set a fixed width for each review container
+                margin: EdgeInsets.only(right: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Rating: ${review.rating}', style: TextStyle(fontSize: 16)),
+                    Text('Comment: ${review.comment}', style: TextStyle(fontSize: 16)),
+                    Text('Reviewer: ${review.reviewerName}', style: TextStyle(fontSize: 16)),
+                    Text('Email: ${review.reviewerEmail}', style: TextStyle(fontSize: 16)),
+                    Text('Date: ${review.date}', style: TextStyle(fontSize: 16)),
+                    Divider(),
+                  ],
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+      ],
     );
   }
 }

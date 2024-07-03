@@ -28,9 +28,6 @@ class ProductListNotifier extends StateNotifier<ProductListState> {
       (r) => r.when(
         noInternet: () => const ProductListState.noInternet(),
         data: (entity) => ProductListState.success(entity),
-        /* data: (pList) => pList.isEmpty
-            ? const ProductListState.empty()
-            : ProductListState.success(pList), */
       ),
     );
   }
