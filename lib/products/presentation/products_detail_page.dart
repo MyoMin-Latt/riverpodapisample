@@ -4,11 +4,6 @@ import 'package:flutter/material.dart';
 import '../fead_products.dart';
 
 class ProductsDetailPage extends StatelessWidget {
-  var review = [
-    'Review1',
-    'Review2',
-    'Review3',
-  ];
   final int id;
   final String title;
   final String description;
@@ -83,6 +78,7 @@ class ProductsDetailPage extends StatelessWidget {
           ),
         ),
         child: ListView(
+          shrinkWrap: true,
           children: [
             Card(
               child: Padding(
@@ -167,32 +163,53 @@ class ProductsDetailPage extends StatelessWidget {
                 ),
               ),
             ),
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 20,
-                  horizontal: 20,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Review 1',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                      ),
+            Column(
+              children: [
+                SingleChildScrollView(
+                  child: ListView.builder(
+                    primary: true,
+                    itemCount: 3,
+                    scrollDirection: Axis.vertical,
+                    physics: const ScrollPhysics(
+                      parent: PageScrollPhysics(),
                     ),
-                    Text('Rating : ${reviews[0].rating.toString()}'),
-                    Text('Comment : ${reviews[0].comment.toString()}'),
-                    Text('Date : ${reviews[0].date.toString()}'),
-                    Text(
-                        'ReviewerName : ${reviews[0].reviewerName.toString()}'),
-                    Text(
-                        'reviewerEmail : ${reviews[0].reviewerEmail.toString()}'),
-                  ],
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Card(
+                        // width: 500,
+                        //color: Colors.red,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 20,
+                            horizontal: 20,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Review ${index + 1}',
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              Text(
+                                  'Rating : ${reviews[index].rating.toString()}'),
+                              Text(
+                                  'Comment : ${reviews[index].comment.toString()}'),
+                              Text('Date : ${reviews[index].date.toString()}'),
+                              Text(
+                                  'ReviewerName : ${reviews[index].reviewerName.toString()}'),
+                              Text(
+                                  'reviewerEmail : ${reviews[index].reviewerEmail.toString()}'),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
@@ -201,17 +218,17 @@ class ProductsDetailPage extends StatelessWidget {
   }
 }
 
-Widget _card(List<Widget> children) {
-  return Card(
-    child: Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 20,
-        horizontal: 20,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: children,
-      ),
-    ),
-  );
-}
+// Widget _card(List<Widget> children) {
+//   return Card(
+//     child: Padding(
+//       padding: const EdgeInsets.symmetric(
+//         vertical: 20,
+//         horizontal: 20,
+//       ),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: children,
+//       ),
+//     ),
+//   );
+// }
