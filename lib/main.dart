@@ -4,5 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'core/feat_core.dart';
 
 FutureOr<void> main() async {
-  runApp(ProviderScope(child: AppWidget()));
+  runApp(ProviderScope(
+    child: AppWidget()));
 }

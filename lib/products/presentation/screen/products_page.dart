@@ -1,8 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../fead_products.dart';
+import '../../fead_products.dart';
 
 @RoutePage()
 class ProductsPage extends ConsumerStatefulWidget {

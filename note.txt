@@ -1,0 +1,51 @@
+Flutter offers a rich set of basic UI widgets that you can use to build your application's user interface. Here is a list of some commonly used basic UI widgets in Flutter:
+
+### Layout Widgets
+1. **Container**: A convenience widget that combines common painting, positioning, and sizing widgets.
+2. **Row**: A widget that displays its children in a horizontal array.
+3. **Column**: A widget that displays its children in a vertical array.
+4. **Stack**: A widget that allows for the overlay of widgets on top of each other.
+5. **Expanded**: A widget that expands a child of a Row, Column, or Flex to fill the available space.
+6. **Padding**: A widget that insets its child by a given padding.
+7. **Center**: A widget that centers its child within itself.
+8. **Align**: A widget that aligns its child within itself and optionally sizes itself based on the child's size.
+
+### Text Widgets
+1. **Text**: A widget that displays a string of text with a single style.
+2. **RichText**: A widget that displays text with multiple styles.
+
+### Button Widgets
+1. **ElevatedButton**: A Material Design elevated button.
+2. **TextButton**: A Material Design flat button without a shadow.
+3. **IconButton**: A Material Design icon button.
+4. **FloatingActionButton**: A circular button that floats above content for primary actions.
+
+### Input Widgets
+1. **TextField**: A widget that allows for text input.
+2. **Checkbox**: A Material Design checkbox.
+3. **Radio**: A Material Design radio button.
+4. **Switch**: A Material Design switch.
+5. **Slider**: A Material Design slider.
+6. **DropdownButton**: A Material Design dropdown button.
+
+### Image and Icon Widgets
+1. **Image**: A widget that displays an image.
+2. **Icon**: A Material Design icon.
+
+### List Widgets
+1. **ListView**: A scrollable list of widgets arranged linearly.
+2. **GridView**: A scrollable, 2D array of widgets.
+
+### App Structure and Navigation Widgets
+1. **Scaffold**: Implements the basic Material Design visual layout structure.
+2. **AppBar**: A Material Design app bar.
+3. **BottomNavigationBar**: A Material Design bottom navigation bar.
+4. **Drawer**: A Material Design panel that slides in horizontally from the edge of a Scaffold.
+5. **TabBar**: A Material Design widget that displays a horizontal row of tabs.
+
+### Miscellaneous Widgets
+1. **Card**: A Material Design card.
+2. **AlertDialog**: A Material Design alert dialog.
+3. **ProgressIndicator**: A Material Design circular or linear progress indicator.
+
+These widgets form the building blocks of a Flutter application and can be combined to create complex user interfaces.

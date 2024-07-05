@@ -1,7 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../fead_products.dart';
+import '../../fead_products.dart';
 
 class ProductsDetailPage extends StatelessWidget {
   final int id;
