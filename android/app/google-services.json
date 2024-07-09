@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "911331195744",
+    "project_id": "riverpodflutter",
+    "storage_bucket": "riverpodflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911331195744:android:3419ae3140199aec91fc05",
+        "android_client_info": {
+          "package_name": "com.systematic.smartworld.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7M6eGt15fosxUmI5qMuJ-bn8j-CArd4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
